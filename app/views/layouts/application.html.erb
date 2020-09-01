@@ -9,6 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <div class="container">
+    <div class="row">
+      <header>
+        <div class="col-xs-1"></div>
+        <div class="col-xs-5">
+          <%= image_tag "logo.png", class: "img-fluid" %>
+        </div>
+
+        <nav class="col-xs-6">
+          <ul>
+            <li class="header_list btn btn-default">About</li>
+            <li class="header_list btn btn-default">商品一覧</li>
+            <li class="header_list btn btn-default">新規登録</li>
+            <li class="header_list btn btn-default">ログイン</li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+  </div>
+
+
+
   <body>
     <%= yield %>
   </body>
