@@ -50,10 +50,10 @@ Rails.application.routes.draw do
       #cart_items
       resources :cart_items, only: [:create, :index, :update, :destroy]
       delete 'cart_items' => 'cart_items#all_destroy'
-
+      
       #shipping_addresses
       resources :shipping_addresses , only: [:index,  :create, :edit, :update, :destroy]
-
+      
       #orders_1
       resources :orders, only: [:index, :show, :new, :create]
     end
@@ -64,13 +64,13 @@ Rails.application.routes.draw do
     patch 'customers/out' => 'customers#out'
     
     #orders_2
-    get'/customers/:customer_id/orders/thanks' => 'orders#thanks'
-    post'/customers/:customer_id/orders/:id/confirm' => 'orders#confirm'
-    get'/customers/:customer_id/orders/:id/complete' => 'orders#complete'    
+    get '/customers/:customer_id/orders/thanks' => 'orders#thanks'
+    post '/customers/:customer_id/orders/:id/confirm' => 'orders#confirm'
+    get '/customers/:customer_id/orders/:id/complete' => 'orders#complete'    
   end
-
+  
+  #items
   namespace :customers do
-    #items
     resources :items, only: [:index, :show]
   end
   
