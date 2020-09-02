@@ -29,6 +29,11 @@ nav {
 }
 
 .header_list {
+	list-style: none;
+	display: flex;
+}
+
+.header_list_item {
 	margin-right: 30px;
 }
 
