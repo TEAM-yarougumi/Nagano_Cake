@@ -43,6 +43,11 @@ Rails.application.routes.draw do
 
 
   #customer_side
+  
+  #items
+  namespace :customers do
+    resources :items, only: [:index, :show]
+  end
 
   scope module: :customers do
     #customers_1
@@ -69,10 +74,6 @@ Rails.application.routes.draw do
     get '/customers/:customer_id/orders/:id/complete' => 'orders#complete'    
   end
   
-  #items
-  namespace :customers do
-    resources :items, only: [:index, :show]
-  end
   
   # end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

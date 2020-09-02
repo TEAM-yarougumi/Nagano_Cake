@@ -1,0 +1,14 @@
+<h1>Editing Book</h1>
+<%= form_with(model:@genre , local: true) do |f| %>
+    <%= form.label :ジャンル名 %><%= form.text_field :name %>
+
+    <%= form.radio_button :status, :有効 %>
+    <%= form.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
+    <%= form.radio_button :status, :無効%>
+    <%= form.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
+    <%= form.submit'追加' %>
+
+<br><%= f.submit 'Update Genre',class: "btn btn-primary btn-block" %>    
+<%=link_to "Show" ,book_path(@book.id) %>|
+<%=link_to "Back",books_path %>    
+<% end %>
