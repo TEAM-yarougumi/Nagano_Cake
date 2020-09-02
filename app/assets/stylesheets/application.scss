@@ -18,6 +18,8 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+ /*header部分*/
 header {
 	height: 120px;
 }
@@ -28,4 +30,20 @@ nav {
 
 .header_list {
 	margin-right: 30px;
+}
+
+/*EC_login_body部分*/
+
+.ec_login_body {
+	margin-top: 100px;
+}
+
+.ec_login_title {
+	background-color: #eeeeee;
+	display: inline-block;
+	margin: 20px;
+}
+
+.ec_login_button {
+	margin-left: 115px;
 }
