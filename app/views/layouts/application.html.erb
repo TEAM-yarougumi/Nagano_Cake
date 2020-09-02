@@ -13,16 +13,24 @@
     <div class="row">
       <header>
         <div class="col-xs-1"></div>
-        <div class="col-xs-5">
+        <div class="col-xs-3">
           <%= image_tag "logo.png", class: "img-fluid" %>
         </div>
 
-        <nav class="col-xs-6">
-          <ul>
-            <li class="header_list btn btn-default">About</li>
-            <li class="header_list btn btn-default">商品一覧</li>
-            <li class="header_list btn btn-default">新規登録</li>
-            <li class="header_list btn btn-default">ログイン</li>
+        <nav class="col-xs-8">
+          <ul class="header_list">
+            <% if customer_signed_in? %>
+              <li class="header_list_item">ようこそ、<%= current_customer.last_name %><%= current_customer.first_name %>さん！</li>
+              <li><%= link_to "マイページ", customer_path(current_customer), class: "btn btn-default header_list_item" %></li>
+              <li><%= link_to "商品一覧", customers_items_path, class: "btn btn-default header_list_item" %></li>
+              <li><%= link_to "カート", customer_cart_items_path(current_customer), class: "btn btn-default header_list_item" %></li>
+              <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-default header_list_item" %></li>
+            <% else %>
+              <li><%= link_to "About", home_about_path, class: "btn btn-default header_list_item" %></li>
+              <li><%= link_to "商品一覧", customers_items_path, class: "btn btn-default header_list_item" %></li>
+              <li><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-default header_list_item" %></li>
+              <li><%= link_to "ログイン", new_customer_session_path, class: "btn btn-default header_list_item" %></li>
+            <% end %>
           </ul>
         </nav>
       </header>
