@@ -12,9 +12,16 @@ def create
 end
 
 def edit
+  @genre = Genre.find(params[:id])
 end
 
 def update
+  @genre = Genre.find(params[:id])
+  @genre.update(genre_params)
+  if @genre.save
+  redirect_to owners_genres_path# 一覧画面へリダイレクト
+  end
+
 end
 
 

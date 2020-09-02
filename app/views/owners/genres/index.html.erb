@@ -8,7 +8,7 @@
     <%= form.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
     <%= form.radio_button :status, :無効%>
     <%= form.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
-    <%= form.submit %>
+    <%= form.submit'追加' %>
  <% end %>
  <table class="table table-hover table-inverse">
    <thead>
@@ -27,6 +27,9 @@
       <% else %>
       無効
       <% end %>
+    </td>
+    <td>
+    <%= link_to "編集する", edit_owners_genre_path(genre) %>
     </td>
     <% end %>
  </table>
