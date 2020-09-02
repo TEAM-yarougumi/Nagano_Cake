@@ -1,14 +1,16 @@
 class Customer::CustomersController < ApplicationController
-    def show
-    end
-    def leave
-    end
-    def out
-    end
-    def edit
-    end
-    def update
-    end
+  before_action :authenticate_customer!
+
+  def show
+  end
+  def leave
+  end
+  def out
+  end
+  def edit
+  end
+  def update
+  end
 
  private
     def customers_params
