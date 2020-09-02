@@ -144,3 +144,45 @@ nav {
 .ec_login_button {
 	margin-left: 115px;
 }
+
+/* 退会ページ */
+.leave_form {
+	margin-top: 30px;
+	text-align: center;
+}
+
+.leave_form > h2 {
+	margin-bottom: 20px;
+}
+
+.leave_sentence {
+	font-size: 17px;
+}
+
+.leave_action_btn {
+	margin-top: 30px;
+}
+
+.leave_action_btn > a:first-child {	
+	background-color: #87CEEB;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.leave_action_btn > a:last-child {	
+	background-color: #CD5C5C;
+	color: white;
+	padding: 10px;
+	border-radius: 5px;
+	margin-left: 20px;
+}
+
+.leave_action_btn > a:first-child:hover {
+	background-color: #5D99FF;
+	text-decoration: none;
+}
+.leave_action_btn > a:last-child:hover {
+	background-color: #990000;
+	text-decoration: none;
+}

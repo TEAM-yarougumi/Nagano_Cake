@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     
     
     #customers_2
-    get 'customers/:id/leave' => 'customers#leave'
+    get 'customers/:id/leave' => 'customers#leave', as: :leave
     patch 'customers/out' => 'customers#out'
     
     #orders_2
