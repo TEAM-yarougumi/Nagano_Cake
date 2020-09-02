@@ -1,26 +1,102 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="registration">
+  <div class="registration_title">
+    <h2>新規会員登録</h2>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <dl class="registration_form">
+      <dt class="registration_form_title">名前</dt>
+      <dd class="registration_form_field">
+        <ul class="registration_name">
+          <li class="registration_form_list">
+            <%= f.label :last_name, "(姓)" %>
+            <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name"%>
+          </li>
+          <li class="registration_form_list">
+            <%= f.label :first_name, "(名)" %>
+            <%= f.email_field :first_name, autofocus: true, autocomplete: "first_name" %>
+          </li>
+        </ul>
 
-  <% if devise_mapping.rememberable? %>
+        <ul class="registration_furigana">
+          <li class="registration_form_list">
+            <%= f.label :last_furigana, "(セイ)" %>
+            <%= f.email_field :last_furigana, autofocus: true, autocomplete: "last_furigana"%>
+          </li>
+          <li class="registration_form_list">
+            <%= f.label :first_furigana, "(メイ)" %>
+            <%= f.email_field :first_furigana, autofocus: true, autocomplete: "first_furigana" %>
+          </li>
+        </ul>
+
+        <ul class="registration_email">
+          <li class="registration_form_list">
+            <%= f.label :email, "メールアドレス" %>
+            <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name"%>
+          </li>
+        </ul>
+        
+        <ul class="registration_name">
+          <li class="registration_form_list">
+            <%= f.label :last_name, "(姓)" %>
+            <%= f.email_field :last_name, autofocus: true, autocomplete: "last_name"%>
+          </li>
+          <li class="registration_form_list">
+            <%= f.label :first_name, "(名)" %>
+            <%= f.email_field :first_name, autofocus: true, autocomplete: "first_name" %>
+          </li>
+        </ul>
+
+      </dd>
+    </dl>
+<%
+=begin%>
+ <dl class="cf">
+    <dt class="title">
+        お名前
+    </dt>
+    <dd class="data name"><!-- CSSの設定でclass名が必要です -->
+        <ul class="cf">
+            <li>姓<input class="input $errorInputColor:●●●$" maxlength="32" name="●●●" type="text" value="$●●●$" style="margin-right: 10px; "/></li>
+            <li>名<input class="input $errorInputColor:●●●$" maxlength="32" name="●●●" type="text" value="$●●●$" /></li>
+        </ul>
+        <span class="msg">$error:●●●$</span><span class="msg">$error:●●●$</span>
+    </dd>
+</dl> 
+<%
+=end%>
+
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+
+    <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.submit "Log in" %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+<div>
 
 <%= render "customers/shared/links" %>
