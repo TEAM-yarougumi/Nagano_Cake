@@ -1,42 +1,36 @@
 <h2>ジャンル一覧・追加</h2>
 
+<%= form_with(model:@genre, url: owners_genres_path, local: true) do |f| %>
+   <%= f.label :name, "ジャンル名" %>
+   <%= f.text_field :name %>
 
-<%= form_with(model:@genre , local: true) do |f| %>
-    <%= f.label :ジャンル名 %>
-    <%= f.text_field :name %>
-
-    <%= f.radio_button :status, :有効 %>
-    <%= f.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
-    <%= f.radio_button :status, :無効%>
-    <%= f.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
-    <%= f.submit'追加' %>
- <% end %>
- <table class="table table-hover table-inverse">
+   <%= f.radio_button :status, :有効 %>
+   <%= f.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
+   <%= f.radio_button :status, :無効%>
+   <%= f.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
+   <%= f.submit'追加' %>
+<% end %>
+<table class="table table-hover table-inverse">
    <thead>
       <th>ジャンル</th>
       <th>状態</th>
       <th></th>
    </thead>
    <% @genres.each do |genre| %>
-   <tr>
-    <td>
-    <%= genre.name %>
-    </td>
-    <td>
-      <% if genre.status == true %>
-      有効
-      <% else %>
-      無効
-      <% end %>
-    </td>
-    <td>
-    <%= link_to "編集する", edit_owners_genre_path(genre) %>
-    </td>
-    <% end %>
- </table>
-
-
-
-
-  
-  
+      <tr>
+         <td>
+            <%= genre.name %>
+         </td>
+         <td>
+            <% if genre.status == true %>
+               有効
+            <% else %>
+               無効
+            <% end %>
+         </td>
+         <td>
+         <%= link_to "編集する", edit_owners_genre_path(genre) %>
+         </td>
+      </tr>
+   <% end %>
+</table>
