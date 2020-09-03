@@ -1,20 +1,21 @@
 class Owners::GenresController < ApplicationController
-  before_action :authenticate_owner!
+  # before_action :authenticate_owner! 一時的に無効化
 
-def index
-     @genres = Genre.all 
-end
+  def index
+    @genres = Genre.all
+    @genre = Genre.new
+  end
 
-def create
+  def create
     @genre = Genre.new(genre_params) 
     if @genre.save
     redirect_to owners_genres_path
     end
-end
+  end
 
-def edit
-  @genre = Genre.find(params[:id])
-end
+  def edit
+    @genre = Genre.find(params[:id])
+  end
 
 def update
   @genre = Genre.find(params[:id])
@@ -22,12 +23,10 @@ def update
   if @genre.save
   redirect_to owners_genres_path# 一覧画面へリダイレクト
   end
-
 end
 
-
 private
-def genre_params
-    params.permit(:name, :status)
+  def genre_params
+    params.require(:genre).permit(:name, :status)
   end
 end

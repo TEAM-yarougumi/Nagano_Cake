@@ -1,13 +1,16 @@
 <h1>Editing Genre</h1>
-<%= form_with url:edit_owners_genre_path(@genre.id) do |f| %>
-    <%= f.label :ジャンル名 %>
+<%= form_with(model: @genre, url: owners_genre_path(@genre), method: :patch) do |f| %>
+
+    <%= f.label :name, "ジャンル名" %>
     <%= f.text_field :name %>
+
 
     <%= f.radio_button :status, :有効 %>
     <%= f.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
-    <%= f.radio_button :status, :無効%>
+    <%= f.radio_button :status, :無効 %>
     <%= f.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
-    <%= f.submit'追加' %>
+    <%= f.submit '追加' %>
 
-<br><%= f.submit 'Update Genre',class: "btn btn-primary btn-block" %>    
+<br><%= f.submit 'Update Genre',class: "btn btn-primary btn-block" %>
+
 <% end %>
