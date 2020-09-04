@@ -1,5 +1,5 @@
 <h2>商品新規登録画面</h2>
-	<%= form_with(model:@item, url:	owners_items_path ) do |f| %>
+	<%= form_with(model:@item, url:	owners_items_path, method: :post) do |f| %>
 		<%= attachment_image_tag @item, :image, :fill, 60, 60 %>
 		<%= f.attachment_field :image, placeholder: "商品画像" %>
 		<br><%= f.label :name, "商品名" %>
@@ -12,5 +12,5 @@
 				<%= f.select :sale_status, [["販売中止","販売中止"], ["販売中","販売中"]], include_blank: "選択して下さい"  %>
 		<br><%= f.label :genre_id, "ジャンル" %>
 				<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい"  %>
-		<br><%= f.submit'追加' %>
+		<br><%= f.submit %>
 	<% end %>
