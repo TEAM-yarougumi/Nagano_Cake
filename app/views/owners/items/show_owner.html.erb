@@ -8,6 +8,7 @@
       <br><h5>商品説明</h5>
       <br><h5>ジャンル</h5>
       <br><h5>税抜価格</h5>
+      <br><h5>税込価格</h5>
       <br><h5>販売ステータス</h5>
     </div>
     <div class = "col-lg-7">
@@ -15,6 +16,8 @@
       <br><h5><%= @item.content %></h5>
       <br><h5><%= @item.genre.name %></h5>
       <br><h5><%= @item.no_tax_price %>円</h5>
+      <br><h5><%=itemprice = @item.no_tax_price*1.1       
+        itemprice.floor%>円</h5>
       <br><h5><%= @item.sale_status %></h5>
       <br><h5><%= link_to "編集する",edit_owners_item_path(@item) %></h5>
     </div>
