@@ -145,6 +145,30 @@ nav {
 	margin-left: 115px;
 }
 
+/*EC_mypage*/
+
+.ec_mypage_title {
+	background-color: #eeeeee;
+	display: inline;
+}
+
+.ec_mypage_body {
+	margin-top: 100px;
+}
+
+.ec_mypage_list {
+	list-style: none;
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.ec_mypage_list_item {
+	margin-right: 10px;
+	font-size: 17px;
+}
+
+
 /* 退会ページ */
 .leave_form {
 	margin-top: 30px;
