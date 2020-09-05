@@ -14,11 +14,31 @@
  *= require_self
  */
 
- /*bootstrap使用のため以下追記*/
- @import "bootstrap-sprockets";
- @import "bootstrap";
+/* bootstrap使用のため以下追記 */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
- /*header部分*/
+/* 暫定エラーメッセージ用 (参考：views\customers\customers\edit.html.erb) */
+.error_explanation {
+	border: solid red;
+  background-color: red;
+  color: white;
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+.error_explanation > h3 {
+	margin: 10px 30px;
+}
+
+.error_explanation > ul {	
+	padding: 30px;
+	margin-bottom: 0;	
+	background-color: white;
+	color: black;
+}
+
+	/*header部分*/
 header {
 	height: 120px;
 }
@@ -145,6 +165,47 @@ nav {
 	margin-left: 115px;
 }
 
+/* 登録情報編集ページ */
+.registration_edit_actions_btn > input {	
+	margin: 15px auto auto 35px;
+	line-height: 45px;
+	width: 280px;
+	background-color: #87CEEB;
+	color: white;
+	border: none;
+	border-radius: 10px;
+}
+
+.registration_edit_actions_btn > input:hover {
+	background-color: #5D99FF;
+	text-decoration: none;
+}
+
+.registration_edit_btn {
+	display: flex;
+}
+
+.registration_edit_leave_btn > a {	
+	margin: 15px auto auto 177px;
+	line-height: 45px;
+	width: 280px;
+	background-color: #CD5C5C;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	display: inline-block;
+	text-align: center;
+}
+
+.registration_edit_leave_btn > a:hover {
+	background-color: #990000;
+	text-decoration: none;
+}
+
+.registration_edit_btn {
+	margin-bottom: 100px;
+}
+
 /*EC_mypage*/
 
 .ec_mypage_title {
@@ -167,7 +228,6 @@ nav {
 	margin-right: 10px;
 	font-size: 17px;
 }
-
 
 /* 退会ページ */
 .leave_form {
@@ -211,7 +271,6 @@ nav {
 	text-decoration: none;
 }
 
-
 /* ec_shipping_address_index */
 .ec_shipping_address_title {
 	background-color: #eeeeee;
@@ -236,20 +295,10 @@ nav {
 }
 
 .ec_about_image {
-	margin: 30px auto;
-}
-
-
-
-
-
-
-.ec_about_image {
 	width: 600px;
 	height: 400px;
 	background-image: url("ec_about.jpg");
 	background-size: cover;
 	background-position: center;
+	margin: 30px auto;
 }
-
-
