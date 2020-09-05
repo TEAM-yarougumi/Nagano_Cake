@@ -20,6 +20,7 @@ end
 
 def show_owner
   @item = Item.find(params[:id])
+  
 end
 
 def edit
