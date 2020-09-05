@@ -2,11 +2,20 @@ class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
     
     def after_sign_in_path_for(resource)
+      case resource
+      when Owner
+        owners_top_path
+      when Customer
         root_path
+      end
     end
 
     def after_sign_out_path_for(resource)
-        root_path
+     if resource == :admin
+      new_owner_session_path
+     else
+      root_path
+     end
     end
 
     def configure_permitted_parameters
