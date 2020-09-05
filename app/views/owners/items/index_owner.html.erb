@@ -1,0 +1,28 @@
+<table class="table table-hover table-inverse">
+  <thead>
+    <th>商品ID</th>
+    <th>商品名</th>
+    <th>税抜価格</th>
+    <th>ジャンル</th>
+    <th>ステータス</th>
+   </thead>
+  <% @item.each do |item| %>
+    <tr>
+      <td>
+        <%= item.id %>
+      </td>
+      <td>
+        <%= link_to item.name, owners_path(item) %>
+      </td>
+      <td>
+        <%= item.no_tax_price %>円
+      </td>
+      <td>
+        <%= item.genre.name %>
+      </td>
+      <td>
+        <%= item.sale_status %>
+      </td>
+      </tr>
+   <% end %>
+</table>

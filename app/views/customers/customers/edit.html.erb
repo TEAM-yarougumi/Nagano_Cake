@@ -1,13 +1,20 @@
-customer登録情報編集ページの予定だったけど、deviseがデフォルトで用意しているビューに変更しました
-<%= link_to  "新登録情報変更ページ", edit_customer_registration_path %>
-
 <div class="registration">
   <div class="registration_title">
     <h2>登録情報編集</h2>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "customers/shared/error_messages", resource: resource %>
+  <%= form_with(model: @customer, url: customer_path(@customer), method: :patch, local: true ) do |f| %>
+
+    <% if @customer.errors.any? %>
+      <div class="error_explanation">
+        <h3><%= @customer.errors.count %>error prohibited this obj from being saved:</h3>
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
     <dl class="registration_form">
       <dt class="registration_form_title">名前</dt>

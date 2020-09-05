@@ -14,11 +14,31 @@
  *= require_self
  */
 
- /*bootstrap使用のため以下追記*/
- @import "bootstrap-sprockets";
- @import "bootstrap";
+/* bootstrap使用のため以下追記 */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
- /*header部分*/
+/* 暫定エラーメッセージ用 (参考：views\customers\customers\edit.html.erb) */
+.error_explanation {
+	border: solid red;
+  background-color: red;
+  color: white;
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+.error_explanation > h3 {
+	margin: 10px 30px;
+}
+
+.error_explanation > ul {	
+	padding: 30px;
+	margin-bottom: 0;	
+	background-color: white;
+	color: black;
+}
+
+	/*header部分*/
 header {
 	height: 120px;
 }
@@ -184,6 +204,29 @@ nav {
 
 .registration_edit_btn {
 	margin-bottom: 100px;
+}
+
+/*EC_mypage*/
+
+.ec_mypage_title {
+	background-color: #eeeeee;
+	display: inline;
+}
+
+.ec_mypage_body {
+	margin-top: 100px;
+}
+
+.ec_mypage_list {
+	list-style: none;
+	display: flex;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.ec_mypage_list_item {
+	margin-right: 10px;
+	font-size: 17px;
 }
 
 /* 退会ページ */

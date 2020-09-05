@@ -1,2 +1,68 @@
-customers#showだよ、マイページだよ
-<%= link_to  "登録情報編集ページへのテスト用リンク", edit_customer_registration_path %>
+<div class="row ec_mypage_body">
+  <div class="col-xs-3"></div>
+  <div class="col-xs-9">
+    <h3 class="ec_mypage_title">　マイページ　</h3>
+    <div>
+      <ul class="ec_mypage_list">
+        <li class="ec_mypage_list_item"><b>登録情報　</b></li>
+        <li><%= link_to "　編集する　", edit_customer_path(@customer), class: "btn btn-primary ec_mypage_list_item" %></li>
+        <li><%= link_to "　パスワードを変更する　", edit_customer_password_path, class: "btn btn-primary ec_mypage_list_item" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-xs-3"></div>
+  <div class="col-xs-7">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td class="active col-xs-3">氏名</td>
+          <td><%= @customer.last_name %>　<%= @customer.first_name %></td>
+        </tr>
+        <tr>
+          <td class="active col-xs-3">カナ</td>
+          <td><%= @customer.last_furigana %>　<%= @customer.first_furigana %></td>
+        </tr>
+        <tr>
+          <td class="active col-xs-3">郵便番号</td>
+          <td><%= @customer.postal_code %></td>
+        </tr>
+        <tr>
+          <td class="active col-xs-3">住所</td>
+          <td><%= @customer.address %></td>
+        </tr>
+        <tr>
+          <td class="active col-xs-3">電話番号</td>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <td class="active col-xs-3">メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-xs-2"></div>
+</div>
+
+<div class="row">
+  <div class="col-xs-3"></div>
+  <div class="col-xs-9">
+    <div>
+      <ul class="ec_mypage_list">
+        <li class="ec_mypage_list_item"><b>配送先　　</b></li>
+        <li><%= link_to "　一覧を見る　", customer_shipping_addresses_path(@customer), class: "btn btn-primary ec_mypage_list_item" %></li>
+      </ul>
+    </div>
+
+    <div>
+      <ul class="ec_mypage_list">
+        <li class="ec_mypage_list_item"><b>注文履歴　</b></li>
+        <li><%= link_to "　一覧を見る　", customer_orders_path(@customer), class: "btn btn-primary ec_mypage_list_item" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
