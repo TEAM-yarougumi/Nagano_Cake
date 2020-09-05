@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     }
 
   devise_for :customers, controller: {
-    sessions: "models/sessions",
-    passwords: "models/passwords",
-    registrations: "models/registration"
+    sessions: "customers/sessions",
+    passwords: "customers/passwords",
+    registrations: "customers/registration"
     }
   
   #top,about

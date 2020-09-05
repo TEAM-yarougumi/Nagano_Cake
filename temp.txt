@@ -1,0 +1,1000 @@
+   29  rails routes
+   30  rails s -b 0.0.0.0
+   31  rails routes
+   32  rails s -b 0.0.0.0
+   33  bundle install
+   34  ping https://github.com/mamfe/refile.git
+   35  ping github.com/mamfe/refile.git
+   36  ping github.com
+   37  ifconfig
+   38  vi /etc/hosts
+   39  bundle install
+   40  ping 52.192.72.89
+   41  ping 13.114.40.48
+   42  git config --global --unset http.proxy
+   43  git config --global --unset https.proxy
+   44  bundle install
+   45  uname
+   46  uname -a
+   47  whoami
+   48  ifconfig
+   49  ipconfig
+   50  ip
+   51  hostname
+   52  ip a
+   53  ip -4 a
+   54  ip a | less
+   55  hostname -i
+   56  ip a
+   57  ping 10.0.2.15
+   58  tracert 10.0.2.15
+   59  pign 
+   60  ping 192.168.33.10
+   61  :/etc/apt/apt.conf.d/$ ls
+   62  vi /etc/apt/apt.conf.d
+   63  vi /etc/resolv.conf 
+   64  vi /etc/sysconfig/network
+   65  ll /etc/sysconfig/network-scripts/
+   66  ll /etc/sysconfig/network-scripts/ifcfg-eth
+   67  vi /etc/sysconfig/network-scripts/ifcfg-eth
+   68  vi /etc/sysconfig/network-scripts/ifcfg-eth0
+   69  iptables
+   70  uname -a
+   71  firewall-cmd
+   72  firewall-cmd --reload
+   73  ping http://localhost:8080
+   74  hostname
+   75  ping https://localhost:8080
+   76  vi /etc/profile
+   77  bundle install
+   78  ip a
+   79  sudo service network-manager restart
+   80  git -b
+   81  git -v
+   82  git --version
+   83  yum update -y nss curl libcurl
+   84  bundle install
+   85  systemctl restart NetworkManager.service 
+   86  bundle install
+   87  nmtui
+   88  ping https://github.com/manfe/refile.git
+   89  traceroute https://github.com/manfe/refile.git
+   90  traceroute www.github.com/manfe/refile.git
+   91  ping  www.github.com/manfe/refile.git
+   92  ping  www.github.com/manfe
+   93  ping http://github.com/manfe
+   94  ip a
+   95  ping github.com
+   96  vi /.ssh/identity
+   97  vi ~/.ssh/identity
+   98  ls ~/.ssh/
+   99  ls -la ~/.ssh/
+  100  vi ~/.ssh/config
+  101  ll ~/.ssh/config
+  102  ll ~/.ssh
+  103  ping github.bom
+  104  vagrant halt
+  105  pwd
+  106  date
+  107  uname -a
+  108  whoami
+  109  ls -la
+  110  cd work/
+  111  ls
+  112  cd meshiterro
+  113  ll
+  114  bundle install
+  115  rails g model PostImage shop_name:text image_id:string caption:text user_id:integer
+  116  rails db:migrate
+  117  rails dbconsole
+  118  rails g controller PostImages
+  119  rails routes
+  120  cd ..
+  121  cp -r meshiterro_template/app/views/post_images/* meshiterro/app/views/post_images/
+  122  cd meshiterro
+  123  rails s -b 0.0.0.0
+  124  rails routes
+  125  rails s -b 0.0.0.0
+  126  rails routes
+  127  history
+  128  rails s -b 0.0.0.0
+  129  rails g model PostComment:text user_id:integer post_image_id:integer
+  130  rails g model PostComment comment:text user_id:integer post_image_id:integer
+  131  vi db/migrate/20200802090628_create_post_comments.rb
+  132  db:migrate
+  133  rails db:migrate
+  134  rails g controller PostComments
+  135  rails routes
+  136  rails
+  137  rails dbconsole
+  138  rails console
+  139  rails dbconsole
+  140  rails routes
+  141  rails s -b 0.0.0.0
+  142  rails routes
+  143  rails s -b 0.0.0.0
+  144  rails routes
+  145  rails g model Favorite user_id:integer post_image_id:integer
+  146  rails db:migrate
+  147  rails g controller Favorites
+  148  rails routes
+  149  rails s -b 0.0.0.0
+  150  rails routes
+  151  rails db:migrate
+  152  rails routes
+  153  rails s -b 0.0.0.0
+  154  bundle install
+  155  rails g kaminari:config
+  156  rails g kaminari:views default
+  157  rails s -b 0.0.0.0
+  158  rails routes
+  159  rails s -b 0.0.0.0
+  160  rails g controller show
+  161  rails d controller show
+  162  rails g controller users show
+  163  rails routes
+  164  rails s -b 0.0.0.0
+  165  rails db:migrate
+  166  rails g migration AddProfileImageIdToUsers profile_image_id:string
+  167  rails db:migrate
+  168  rails s -b 0.0.0.0
+  169  cd 
+  170  pwd
+  171  ll
+  172  cd work/meshiterro
+  173  rails s -b 0.0.0.0
+  174  rails routes
+  175  rails s -b 0.0.0.0
+  176  pwd
+  177  cd ../bootstrap_template_master/
+  178  pwd
+  179  ll
+  180  vi Gemfile 
+  181  bundle install
+  182  rails db:migrate
+  183  rails s -b 0.0.0.0
+  184  wpd
+  185  pwd
+  186  rails s -b 0.0.0.0
+  187  bundle install
+  188  mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
+  189  ll app/assets/stylesheets
+  190  rails s -b 0.0.0.0
+  191  cd ..
+  192  wpd
+  193  pwd
+  194  rails new bookers
+  195  pwd
+  196  ll
+  197  ll Bookers/
+  198  rails d Bookers
+  199  rm -f Bookers
+  200  rm -rf Bookers
+  201  sudo rm -rf Bookers
+  202  pwd
+  203  ll
+  204  rails new bookers
+  205  pwd
+  206  ll
+  207  cd bookers/
+  208  pwd
+  209  ll
+  210  ls -la
+  211  pwd
+  212  ll
+  213  ls -la
+  214  vi .git
+  215  cd ..
+  216  cd bookers/
+  217  ls -la
+  218  rails s -b 0.0.0.0
+  219  bundle install
+  220  rails g devise:install
+  221  rails g devise User
+  222  vi db/migrate/20200804031603_devise_create_users.rb
+  223  rails db:migrate
+  224  rails routes
+  225  rails s -b 0.0.0.0
+  226  rails g devise:views
+  227  rails s -b 0.0.0.0
+  228  whoami
+  229  uname -a
+  230  pwd
+  231  date
+  232  ll
+  233  ll /
+  234  ll /etc/
+  235  df
+  236  pwd
+  237  ll
+  238  cd work/bookers/
+  239  pwd
+  240  rails routes
+  241  rails s -b 0.0.0.0
+  242  rails routes
+  243  rails s -b 0.0.0.0
+  244  vi /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber
+  245  notepad /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb
+  246  vi /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb
+  247  pwd
+  248  vi /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb > tmp.txt
+  249   /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb > tmp.txt
+  250  cat /home/vagrant/.rbenv/versions/2.5.7/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb > tmp.txt
+  251  ll
+  252  pwd
+  253  cd work/bookers/
+  254  rails s -b 0.0.0.0
+  255  pwd
+  256  cd ../meshiterro
+  257  rails s -b 0.0.0.0
+  258  cd ../meshiterro
+  259  cd ../bookers/
+  260  rails s -b 0.0.0.0
+  261  bundle install
+  262  rails s -b 0.0.0.0
+  263  rails g model Book title:string body:text user_id:integer
+  264  rails db:migrate
+  265  rails g controller Books
+  266  rails g controller Users
+  267  rails routes
+  268  rails s -b 0.0.0.0
+  269  rails c
+  270  rails s -b 0.0.0.0
+  271  rails c
+  272  exit
+  273  pwd
+  274  cd work/meshiterro
+  275  rails s -b 0.0.0.0
+  276  exit
+  277  cd work/boo
+  278  cd work/bookers/
+  279  pwd
+  280  bundle install
+  281  pd
+  282  rails s -
+  283  rails s -b 0.0.0.0
+  284  cd ../meshiterro
+  285  rails routes
+  286  cd ../bookers/
+  287  rails s -b 0.0.0.0
+  288  cd ../meshiterro
+  289  rails s -b 0.0.0.0
+  290  exit
+  291  pwd
+  292  ll
+  293  cd work/bookers/
+  294  ll
+  295  rails s -b 0.0.0.0
+  296  rails console
+  297  rails s -b 0.0.0.0
+  298  quit
+  299  rails s -b 0.0.0.0
+  300  rails c
+  301  rails s -b 0.0.0.0
+  302  rails dbconsole
+  303  rails s -b 0.0.0.0
+  304  rails routes
+  305  rails s -b 0.0.0.0
+  306  rails routes
+  307  rails s -b 0.0.0.0
+  308  rails routes
+  309  rails s -b 0.0.0.0
+  310  rails c
+  311  rails routes
+  312  rails c
+  313  rails s -b 0.0.0.0
+  314  pwd
+  315  vagrant halt
+  316  cd work/
+  317  ll
+  318  vagrant halt
+  319  cd bookers/
+  320  vagrant halt
+  321  cd booker
+  322  pwd
+  323  cd ..
+  324  vagrant halt
+  325  vagrant up
+  326  exit
+  327  pwd
+  328  ll
+  329  cd work/
+  330  cd boo
+  331  cd bookers/
+  332  git log --diff-filter=D --summary
+  333  rails s -b 0.0.0.0
+  334  rails routes
+  335  rails s -b 0.0.0.0
+  336  rails routes
+  337  rails s -b 0.0.0.0
+  338  bundle install
+  339  rails db:migrate RAILS_ENV=test
+  340  bundle exec rspec spec/ --format documentation
+  341  rails s -b 0.0.0.0
+  342  history
+  343  bundle exec rspec spec/ --format documentation
+  344  rails s -b 0.0.0.0
+  345  bundle exec rspec spec/ --format documentation
+  346  rails s -b 0.0.0.0
+  347  bundle exec rspec spec/ --format documentation
+  348  rails s -b 0.0.0.0
+  349  bundle exec rspec spec/ --format documentation
+  350  rails s -b 0.0.0.0
+  351  bundle exec rspec spec/ --format documentation
+  352  rails s -b 0.0.0.0
+  353  bundle exec rspec spec/ --format documentation
+  354  rails s -b 0.0.0.0
+  355  bundle exec rspec spec/ --format documentation
+  356  rails s -b 0.0.0.0
+  357  bundle exec rspec spec/ --format documentation
+  358  rails s -b 0.0.0.0
+  359  bundle exec rspec spec/ --format documentation
+  360  exit
+  361  rails s -b 0.0.0.0
+  362  pwd
+  363  cd work/bookers/
+  364  rails s -b 0.0.0.0
+  365  bundle exec rspec spec/ --format documentation
+  366  exit
+  367  rails s -b 0.0.0.0
+  368  ll 
+  369  cd work/bookers/
+  370  rails s -b 0.0.0.0
+  371  bundle exec rspec spec/ --format documentation
+  372  exit
+  373  ll
+  374  cd work/bookers/
+  375  rails s -b 0.0.0.0
+  376  net stat
+  377  ifconfig
+  378  ip a
+  379  rails s -b 0.0.0.0
+  380  cd C:\Users\Owner\Desktop\work\vagrant\review
+  381  cd C:\Users\Owner\Desktop\work\vagrant
+  382  pwd
+  383  cd ..
+  384  ll
+  385  cd review/
+  386  ll
+  387  cd sample_app/
+  388  rails new sample_app
+  389  ll
+  390  pwd
+  391  rails g controller homes
+  392  rails s -b 0.0.0.0
+  393  rails g model List
+  394  rails db:migrate
+  395  clear
+  396  rails g migrate AddNameToLists name:string
+  397  rails g migration AddNameToLists name:string
+  398  vi db/migrate/20200811012155_add_name_to_lists.rb
+  399  rails g migration RemoveNameFromLists name:string
+  400  vi db/migrate/20200811012155_add_name_to_lists.rb
+  401  rails g migration RemoveNameFromLists name:string
+  402  vi db/migrate/20200811012155_add_name_to_lists.rb
+  403  vi db/migrate/20200811012325_remove_name_from_lists.rb
+  404  rails db:migrate
+  405  rails g controller todolists new
+  406  history
+  407  rails db:migrate
+  408  history
+  409  rails migration RemoveNameFromLists name:string
+  410  rails g migration RemoveNameFromLists name:string
+  411  rails db:migrate
+  412  rails g migration AddTitleToLists title:string
+  413  rails db:migrate
+  414  rails s -b 0.0.0.0
+  415  rails routes
+  416  rails s -b 0.0.0.0
+  417  rails routes
+  418  rails s -b 0.0.0.0
+  419  rails routes
+  420  rails s -b 0.0.0.0
+  421  bundle install
+  422  rails g migration AddImageIdToLists image_id:string
+  423  rails db:migrate
+  424  rails s -b 0.0.0.0
+  425  cd ..
+  426  clear
+  427  rails new CARAVAN
+  428  rails g model Blog title:string category:string body:text
+  429  ll
+  430  pwd
+  431  cd CARAVAN/
+  432  pwd
+  433  ll
+  434  rails g model Blog title:string category:string body:text
+  435  rails db:migrate
+  436  rails g controller blogs index show new edit
+  437  rails routes
+  438  rails s -b 0.0.0.0
+  439  rails routes
+  440  rails s -b 0.0.0.0
+  441  pwd
+  442  cd ..
+  443  pwd
+  444  ll
+  445  rails new Booker
+  446  rails g model Book
+  447  cd Booker/
+  448  ll
+  449  rails g model Book
+  450  rails d model Book
+  451  rails g model Book name:string body:text
+  452  rails db:migrate
+  453  rails g controller top index show edit 
+  454  rails routtes
+  455  rails routes
+  456  history
+  457  rails d controller top index show edit
+  458  rails g controller books top index show edit
+  459  rails s -b 0.0.0.0
+  460  rails routes
+  461  rails s -b 0.0.0.0
+  462  rails c
+  463  rails s -b 0.0.0.0
+  464  rails c
+  465  rails s -b 0.0.0.0
+  466  bundle install
+  467  rails s -b 0.0.0.0
+  468  bundle install
+  469  rails s -b 0.0.0.0
+  470  pwd
+  471  rails s -b 0.0.0.0
+  472  bundle install
+  473  rails db:migrate RAILS_ENV=test
+  474  bundle exec rspec spec/ --format documentation
+  475  clear
+  476  rails g migration RemoveNameFromBooks name:string
+  477  vi 
+  478  vi db/migrate/20200813122706_remove_name_from_books.rb
+  479  rails g migration AddTitleToBooks title:string
+  480  vi db/migrate/20200813122756_add_title_to_books.rb
+  481  rails db:migrate
+  482  bundle exec rspec spec/ --format documentation
+  483  rails s -b 0.0.0.0
+  484  bundle exec rspec spec/ --format documentation
+  485  rails db:migrate RAILS_ENV=test
+  486  bundle exec rspec spec/ --format documentation
+  487  rails s -b 0.0.0.0
+  488  bundle exec rspec spec/ --format documentation
+  489  exit
+  490  pwd
+  491  cd work/
+  492  ll
+  493  cd meshiterro
+  494  ll
+  495  rails db:migrate
+  496  pwd
+  497  cd ..
+  498  ll
+  499  cd review/meshiterro/
+  500  rails db:migrate
+  501  rails routes
+  502  rails s -b 0.0.0.0
+  503  rails g devise:views
+  504  cd /home/vagrant/work
+  505  pwd
+  506  ll
+  507  cp meshiterro_template/app/views/devise/sessions/new.html.erb review/meshiterro/app/views/devise/sessions/
+  508  cp meshiterro_template/app/views/layouts/application.html.erb review/meshiterro/app/views/layouts/
+  509  pwd
+  510  cd review/meshiterro/
+  511  rails s -b 0.0.0.0
+  512  cd /home/vagrant/work
+  513  cp meshiterro_template/app/views/devise/registrations/new.html.erb review/meshiterro/app/views/devise/registrations/
+  514  cd review/meshiterro/
+  515  pwd
+  516  rails s -b 0.0.0.0
+  517  bundle install
+  518  rails g model PostImage shop_name:text image_id:string caption:text user_id:integer
+  519  rails db:migrate
+  520  rails g controller postImages
+  521  rails routes
+  522  cd /home/vagrant/work
+  523  cp -r meshiterro_template/app/views/post_images/* review/meshiterro/app/views/post_images/
+  524  rails s -b 0.0.0.0
+  525  ll
+  526  cd review/meshiterro/
+  527  pwd
+  528  rails s -b 0.0.0.0
+  529  bundle install
+  530  rails s -b 0.0.0.0
+  531  rails c
+  532  rails s -b 0.0.0.0
+  533  rails g model PostComment comment:text user_id:integer post_image_id:integer
+  534  vi db/migrate/20200814073349_create_post_comments.rb
+  535  rails db:migrate
+  536  rails g controller post_comments
+  537  rails routes
+  538  rails s -b 0.0.0.0
+  539  ll
+  540  cd ..
+  541  ll
+  542  cd bookers/
+  543  rails s -b 0.0.0.0
+  544  cd ..
+  545  ll
+  546  cd review/meshiterro/
+  547  rails s -b 0.0.0.0
+  548  rails routes
+  549  rails g model Favorite user_id:integer post_image_id:integer
+  550  vi db/migrate/20200817133746_create_favorites.rb
+  551  rails db:migrate
+  552  rails g controller favorites
+  553  rails g controller Favorites
+  554  rails d controller Favorites
+  555  rails g controller Favorites
+  556  rails d controller Favorites
+  557  rails g controller favorites
+  558  rails g controller Favorites
+  559  rails s -b 0.0.0.0
+  560  pwd
+  561  ll
+  562  rails s -b 0.0.0.0
+  563  cd ..
+  564  ll
+  565  cd bookers1_debug/
+  566  ll
+  567  git init
+  568  ll
+  569  ls -la
+  570  pwd
+  571  ll
+  572  cd ..
+  573  pwd
+  574  ll
+  575  cd debug/
+  576  ll
+  577  cd bookers1_debug/
+  578  rails s -b 0.0.0.0
+  579  bundle install
+  580  rails s -b 0.0.0.0
+  581  rails db:migrate
+  582  rails s -b 0.0.0.0
+  583  rails routes
+  584  rails s -b 0.0.0.0
+  585  bundle install
+  586  rails db:migrate RAILS_ENV=test
+  587  rails db:migrate
+  588  rails db:migrate RAILS_ENV=test
+  589  bundle exec rspec spec/ --format documentation
+  590  bundle install
+  591  rails db:migrate RAILS_ENV=test
+  592  history
+  593  bundle exec rspec spec/ --format documentation
+  594  rails routes
+  595  rails s -b 0.0.0.0
+  596  rails routes
+  597  rails s -b 0.0.0.0
+  598  rails g migration AddTitleToBooks title:string
+  599  vi db/migrate/20200818061826_add_title_to_books.rb
+  600  rails db:migrate
+  601  rails s -b 0.0.0.0
+  602  bundle exec rspec spec/ --format documentation
+  603  history
+  604  rails db:migrate
+  605  bundle exec rspec spec/ --format documentation
+  606  exit
+  607  ll
+  608  cd work/
+  609  pwd
+  610  ll
+  611  cd debug/
+  612  ll
+  613  cd bookers1_debug/
+  614  bundle exec rspec spec/ --format documentation
+  615  l
+  616  ll
+  617  cd work/
+  618  ll
+  619  cd debug/
+  620  ll
+  621  cd bookers1_debug/
+  622  bundle exec rspec spec/ --format documentation
+  623  rails db:migrate RAILS_ENV=test
+  624  bundle exec rspec spec/ --format documentation
+  625  rails s -b 0.0.0.0
+  626  rails db:migrate RAILS_ENV=test
+  627  bundle exec rspec spec/ --format documentation
+  628  cd ..
+  629  ll
+  630  cd bookers2_debug/
+  631  ll
+  632  rails db:migrate
+  633  bundle install
+  634  rails db:migrate
+  635  rails db:migrate RAILS_ENV=test
+  636  bundle exec rspec spec/ --format documentation
+  637  rails s -b 0.0.0.0
+  638  rails routes
+  639  rails s -b 0.0.0.0
+  640  rails routes
+  641  bundle install
+  642  rails routes
+  643  rails s -b 0.0.0.0
+  644  rails g controller devise
+  645  rails d controller devise
+  646  rails s -b 0.0.0.0
+  647  rails g devise:views
+  648  rails s -b 0.0.0.0
+  649  bundle install
+  650  rails s -b 0.0.0.0
+  651  rails c
+  652  rails s -b 0.0.0.0
+  653  history
+  654  bundle exec rspec spec/ --format documentation
+  655  rails s -b 0.0.0.0
+  656  bundle exec rspec spec/ --format documentation
+  657  rails s -b 0.0.0.0
+  658  bundle exec rspec spec/ --format documentation
+  659  cd ..
+  660  ll
+  661  cd ..
+  662  ll
+  663  cd rails-practice/
+  664  ll
+  665  cd Booker2_FavoriteAndComment/
+  666  pwd
+  667  clear
+  668  rails g controller favorites create destroy
+  669  rails d controller favorites create destroy
+  670  rails d controller favorites
+  671  rails g controller favorites
+  672  rails g model Favorite user_id:integer book_id:integer 
+  673  vi db/migrate/20200819060542_create_favorites.rb
+  674  rails db:migrate
+  675  rails routes
+  676  rails s -b 0.0.0.0
+  677  rails g controller comments
+  678  rails d controller comments
+  679  rails g controller book_comments
+  680  rails g model BookComment user_id:string book_id:string comment:text
+  681  vi db/migrate/20200819084624_create_book_comments.rb
+  682  rails db:migrate
+  683  rails routes
+  684  rails s -b 0.0.0.0
+  685  cd ..
+  686  ll
+  687  cd Answer_Booker2_FavoriteAndComment/
+  688  rails s -b 0.0.0.0
+  689  bundle install
+  690  pwd
+  691  ll
+  692  cd favorite_comment/
+  693  ll
+  694  rails s -b 0.0.0.0
+  695  bundle install
+  696  rails s -b 0.0.0.0
+  697  rails db:migrate
+  698  rails s -b 0.0.0.0
+  699  cd ../
+  700  cd ..
+  701  ll
+  702  cd Booker2_FavoriteAndComment/
+  703  pwd
+  704  rails s -b 0.0.0.0
+  705  exit
+  706  ll
+  707  pwd
+  708  cd work/
+  709  ll
+  710  cd rails-practice/
+  711  ll
+  712  cd 4_Follow/
+  713  ll
+  714  bundle install
+  715  rails g model Relationship
+  716  rails g controller relationships, class_name: 'Relationship', foreign_key: 'user_id'
+  717  rails routes
+  718  rails db:migrate
+  719  history
+  720  rails d controller relationships, class_name: 'Relationship', foreign_key: 'user_id'
+  721  rails d model Relationship
+  722  history
+  723  rails db:migrate
+  724  rails g model Ralationship follower_id:integer followed_id:integer
+  725  rails db:migrate
+  726  history
+  727  rails g controller relationships
+  728  rails s -b 0.0.0.0
+  729  rails db
+  730  rails d model Ralationship follower_id:integer followed_id:integer
+  731  rails g model Relationship follower_id:integer followed_id:integer
+  732  rails db:migrate
+  733  rails g migration relationship
+  734  vi db/migrate/20200820080813_relationship.rb
+  735  rails db
+  736  vi db/migrate/20200820080813_relationship.rb
+  737  rails db:migrate
+  738  vi db/migrate/20200820080813_relationship.rb
+  739  rails db:migrate
+  740  rails db
+  741  rails g model Relationship follower_id:integer followed_id:integer
+  742  rails db:migrate
+  743  rails db
+  744  rails s -b 0.0.0.0
+  745  history
+  746  ll
+  747  cd work/
+  748  ll
+  749  pwd
+  750  ll
+  751  pwd
+  752  ll
+  753  cd ..
+  754  ll
+  755  cd ..
+  756  ll
+  757  cd vagrant/
+  758  pwd
+  759  ll
+  760  cd work/
+  761  ll
+  762  dir
+  763  pwd
+  764  cd ..
+  765  pwd
+  766  ll
+  767  cd vagrant/
+  768  ll
+  769  cd ImageMagick-7.0.8-68/
+  770  ll
+  771  cd ..
+  772  pwd
+  773  cd ..
+  774  ll
+  775  cd vagrant/
+  776  ll
+  777  cd work/
+  778  ll
+  779  ls -la
+  780  exit
+  781  ll
+  782  cd w
+  783  cd work/
+  784  ll
+  785  cd rails-practice/
+  786  ll
+  787  5_Search/
+  788  ll
+  789  cd 5_Search/
+  790  rails s -b 0.0.0.0
+  791  cd ../search/
+  792  rails s -b 0.0.0.0
+  793  bundle install
+  794  gem install bundler:1.17.3
+  795  bundle install
+  796  cd ../5_Search/
+  797  rails s -b 0.0.0.0
+  798  cd ..
+  799  ll
+  800  cd 6_Ajax/
+  801  rails s -b 0.0.0.0
+  802  rails routes
+  803  rails s -b 0.0.0.0
+  804  rails routes
+  805  rails s -b 0.0.0.0
+  806  cd ..
+  807  pwd
+  808  ll
+  809  cd 6_Ajax/
+  810  ll
+  811  cd ..
+  812  ll
+  813  cd ajax_favorite_comment/
+  814  bundle install
+  815  ls -la
+  816  cd ajax_favorite_comment/
+  817  bundle install
+  818  rails s -b 0.0.0.0
+  819  cd ..
+  820  ll
+  821  cd 6_Ajax/
+  822  cd ..
+  823  cd rails-practice/7_Address/
+  824  rails c
+  825  rails -v
+  826  ll
+  827  vi Gemfile
+  828  bundle install
+  829  ll
+  830  cd app/
+  831  ll
+  832  cd assets/
+  833  ll
+  834  cd javascripts/
+  835  ll
+  836  git clone https://github.com/ninton/jquery.jpostal.js.git
+  837  pwd
+  838  rails g migration AddColumnsToUsers postcode:integer
+  839  vi db/migrate/20200825040205_add_columns_to_users.rb
+  840  rails db:migrate
+  841  rails s -b 0.0.0.0
+  842  rails -v
+  843  exit
+  844  rails new
+  845  pwd
+  846  ll
+  847  cd work/
+  848  pwd
+  849  ll
+  850  mkdir tmp
+  851  ll
+  852  cd tmp/
+  853  rails new tmp
+  854  ll
+  855  cd tmp/
+  856  vi Gemfile
+  857  bundle install
+  858  rails g devise customer
+  859  rails g devise owner
+  860  rails d devise customer
+  861  rails routes
+  862  rails g devise Owner name:string
+  863  rails db:migrate
+  864  rails g devise:install
+  865  rails d devise Owner name:string
+  866  rails g devise:install
+  867  rails g devise Owner name:string
+  868  rails g devise Customer name:string
+  869  rails g devise:views customer
+  870  rails g devise:views owner
+  871  rails routes
+  872  history
+  873  rails routes
+  874  clear
+  875  rails routes
+  876  exit
+  877  rails routes
+  878  ll
+  879  cd work/
+  880  cd tmp/
+  881  ll
+  882  cd tmp/
+  883  ll
+  884  rails routes
+  885  exit
+  886  ll
+  887  cd work/
+  888  ll
+  889  cd Nagano_Cake/
+  890  ll
+  891  vi Gemfile
+  892  rails g devise install
+  893  bundle install
+  894  rails g devise install
+  895  rails g devise customer
+  896  rails g devise owner
+  897  history
+  898  rails g devise:install
+  899  rails d devise install
+  900  rails g devise:install
+  901  rails g devise customer
+  902  rails g devise owner
+  903  rails routes
+  904  rails db:migrate
+  905  rails g devise:views customer
+  906  rails g devise:views owner
+  907  rails routes
+  908  rails s -b 0.0.0.0
+  909  history
+  910  rails s -b 0.0.0.0
+  911  rails routes
+  912  history
+  913  rails routes
+  914  rails s -b 0.0.0.0
+  915  rails g devise:controllers customers
+  916  rails g devise:controllers owners
+  917  rails routes
+  918  rails s -b 0.0.0.0
+  919  history
+  920  rails s -b 0.0.0.0
+  921  history
+  922  rails g devise:views devise/customer
+  923  rails s -b 0.0.0.0
+  924  rails routes
+  925  rails g devise devise/customer
+  926  rails d devise devise/customer
+  927  rails s -b 0.0.0.0
+  928  cd ..
+  929  cd tmp/
+  930  rails routes
+  931  ll
+  932  cd tmp/
+  933  rails routes
+  934  rails g devise:views devise/customer
+  935  rails g devise:views devise/owner
+  936  rails s -b 0.0.0.0
+  937  db:migrate RAILS_ENV=development
+  938  rails db:migrate RAILS_ENV=development
+  939  rails s -b 0.0.0.0
+  940  rails routes
+  941  rails s -b 0.0.0.0
+  942  cd ..
+  943  cd Nagano_Cake/
+  944  rails s -b 0.0.0.0
+  945  rails routes
+  946  Rails.application.routes.draw do
+  947    devise_for :owners, controller: {
+  948      sessions: "models/sessions",
+  949      passwords: "models/passwords",
+  950      registrations: "models/registration"
+  951      }
+  952    devise_for :customers, controller: {
+  953      sessions: "models/sessions",
+  954      passwords: "models/passwords",
+  955      registrations: "models/registration"
+  956      }
+  957    namespace :owners do
+  958      resources :items, only: [:new, :create, :edit, :update]
+  959      get'items/index_owner'    =>  'items#index_owner'
+  960      get'items/:id/show_owner' =>  'items#show_owner'
+  961    end
+  962    namespace :customers do
+  963      
+  964    end
+  965    # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  966  rails routes
+  967  rails db:migrate
+  968  rails g model ShippingAddress
+  969  rails d model ShippingAddress
+  970  rails routes
+  971  ll
+  972  pwd
+  973  rails routes
+  974  cd ..
+  975  ll
+  976  cd Nagano_Cake/
+  977  rails routes
+  978  exit
+  979  ll
+  980  cd work/
+  981  ll
+  982  cd N
+  983  cd Nagano_Cake/
+  984  ll
+  985  rails routes
+  986  rails g model ShippingAddress
+  987  rails g model Order
+  988  rails routes
+  989  exit
+  990  ll
+  991  cd work/
+  992  ll
+  993  cd Nagano_Cake/
+  994  ll
+  995  pwd
+  996  ll
+  997  rails db:migrate
+  998  exit
+  999  ll
+ 1000  cd work/
+ 1001  ll
+ 1002  cd Nagano_Cake/
+ 1003  rails s -b 0.0.0.0
+ 1004  rails db:migrate RAILS_ENV=development
+ 1005  rails s -b 0.0.0.0
+ 1006  rails routes
+ 1007  rails s -b 0.0.0.0
+ 1008  rails c
+ 1009  rails dbconsole
+ 1010  rails s -b 0.0.0.0
+ 1011  rails routes
+ 1012  rails s -b 0.0.0.0
+ 1013  rails routes
+ 1014  rails s -b 0.0.0.0
+ 1015  rails g controller customers/items
+ 1016  rails d controller customers/items
+ 1017  rails g controller customers/items
+ 1018  rails s -b 0.0.0.0
+ 1019  rails routes
+ 1020  rails s -b 0.0.0.0
+ 1021  rails routes
+ 1022  rails s -b 0.0.0.0
+ 1023  rails c
+ 1024  rails s -b 0.0.0.0
+ 1025  rails routes
+ 1026  rails s -b 0.0.0.0
+ 1027  history
+ 1028  history > temp.txt

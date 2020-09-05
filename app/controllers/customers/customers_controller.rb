@@ -11,7 +11,7 @@ class Customers::CustomersController < ApplicationController
   def update
   end
 
- private
+private
     def customers_params
       params.require(:customers).permit(:last_name, :first_name, :last_furigana, :first_furigana, :postal_code,:address,:telephone_number)
     end

@@ -9,7 +9,12 @@ class ApplicationController < ActionController::Base
         root_path
     end
 
+    protected
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_furigana, :first_furigana, :postal_code, :address, :telephone_number])
+    end
+
+    def update_resource(resource, params)
+        resource.update_without_password(params)
     end
 end

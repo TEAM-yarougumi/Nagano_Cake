@@ -145,6 +145,47 @@ nav {
 	margin-left: 115px;
 }
 
+/* 登録情報編集ページ */
+.registration_edit_actions_btn > input {	
+	margin: 15px auto auto 35px;
+	line-height: 45px;
+	width: 280px;
+	background-color: #87CEEB;
+	color: white;
+	border: none;
+	border-radius: 10px;
+}
+
+.registration_edit_actions_btn > input:hover {
+	background-color: #5D99FF;
+	text-decoration: none;
+}
+
+.registration_edit_btn {
+	display: flex;
+}
+
+.registration_edit_leave_btn > a {	
+	margin: 15px auto auto 177px;
+	line-height: 45px;
+	width: 280px;
+	background-color: #CD5C5C;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	display: inline-block;
+	text-align: center;
+}
+
+.registration_edit_leave_btn > a:hover {
+	background-color: #990000;
+	text-decoration: none;
+}
+
+.registration_edit_btn {
+	margin-bottom: 100px;
+}
+
 /* 退会ページ */
 .leave_form {
 	margin-top: 30px;
