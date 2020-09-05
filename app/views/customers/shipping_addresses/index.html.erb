@@ -5,7 +5,7 @@
 			<div>
 				<h3 class="ec_shipping_address_title">　配送先登録/一覧　</h3>
 
-				<%= form_with(model: @shipping_address, url: customer_shipping_addresses_path) do |f| %>
+				<%= form_with(model: @shipping_address, url: customer_shipping_addresses_path, local: true) do |f| %>
 					<div class="field form-group">
 						<%= f.label :shipping_postal_code, "郵便番号 (ハイフンなし)　" %>
 						<%= f.text_field :shipping_postal_code %><br>

@@ -283,3 +283,22 @@ nav {
 	margin-left: 215px;
 }
 
+/* ec_about */
+.ec_about_title {
+	font-size: 60px;
+	text-align: center;
+}
+
+.ec_about_text {
+	font-size: 20px;
+	text-align: center;
+}
+
+.ec_about_image {
+	width: 600px;
+	height: 400px;
+	background-image: url("ec_about.jpg");
+	background-size: cover;
+	background-position: center;
+	margin: 30px auto;
+}
