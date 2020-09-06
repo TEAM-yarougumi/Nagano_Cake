@@ -13,6 +13,10 @@ def edit_owner
 end
 
 def update_owner
+  @customer = Customer.find(params[:id])
+  if @customer.save
+    redirect_to owners_customers_path
+    end
 end
 
 end
