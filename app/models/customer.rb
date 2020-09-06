@@ -17,4 +17,5 @@ class Customer < ApplicationRecord
   validates :telephone_number, presence: true, uniqueness: true
 
   enum status: { 退会: 0, 有効: 1}
+  
 end

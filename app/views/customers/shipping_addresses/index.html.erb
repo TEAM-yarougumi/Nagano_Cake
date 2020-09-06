@@ -1,1 +1,69 @@
-え
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-9">
+			<div>
+				<h3 class="ec_shipping_address_title">　配送先登録/一覧　</h3>
+
+				<%= form_with(model: @shipping_address, url: customer_shipping_addresses_path, local: true) do |f| %>
+
+					<% if @shipping_address.errors.any? %>
+            <div class="error_explanation">
+              <h3><%= @shipping_address.errors.count %>error prohibited this obj from being saved:</h3>
+              <ul>
+                <% @shipping_address.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+					<div class="field form-group">
+						<%= f.label :shipping_postal_code, "郵便番号 (ハイフンなし)　" %>
+						<%= f.text_field :shipping_postal_code %><br>
+					</div>
+
+					<div class="field form-group">
+						<%= f.label :shipping_address, "住所　　　　　　　　　　" %>
+						<%= f.text_field :shipping_address, size: "50px" %><br>
+					</div>
+
+					<div class="field form-group">
+						<%= f.label :address_name, "宛名　　　　　　　　　　" %>
+						<%= f.text_field :address_name %>
+						<%= f.submit "　登録する　", class: "btn btn-success ec_shipping_address_create_button" %>
+					</div>
+
+				<% end %>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-3"></div>
+		<div class="col-xs-8">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="active">
+						<th>郵便番号</th>
+						<th>住所</th>
+						<th>宛名</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @shipping_addresses.each do |shipping_address| %>
+						<tr>
+							<td><%= shipping_address.shipping_postal_code %></td>
+							<td><%= shipping_address.shipping_address %></td>
+							<td><%= shipping_address.address_name %></td>
+							<td><%= link_to " 編集する ", edit_customer_shipping_address_path(current_customer.id, shipping_address), class: "btn btn-primary" %>　<%= link_to " 削除する ", customer_shipping_address_path(current_customer.id, shipping_address), method: :delete, data: {confirm: "本当に削除してよろしいですか？"}, class: "btn btn-danger" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-xs-1"></div>
+	</div>
+</div>
