@@ -1,0 +1,60 @@
+<div class="row">
+	<div class="col-xs-3">
+		<div>ジャンル検索</div>
+	</div>
+
+	<div class="col-xs-9">
+		<div>
+			<%= attachment_image_tag(@item, :image, :fill, 50, 50) %>
+		</div>
+		<div><%= @item.name %></div>
+		<div><%= @item.content %></div>
+		<div>￥ <%= @item.no_tax_price %> （税込）</div>
+		<div>
+			<div class="btn-group">
+				<button type="button" class="btn btn-default">
+					個数選択
+				</button>
+				<button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" role="menu">
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">３</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">４</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">５</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">６</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">７</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">８</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">９</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１０</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１１</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１２</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１３</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１４</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１５</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１６</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１７</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１８</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">１９</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２０</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２１</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２２</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２３</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２４</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２５</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２６</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２７</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２８</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">２９</a></li>
+					<li role="presentation"><a role="menuitem" tabindex="-1" href="#">３０</a></li>
+				</ul>
+			</div>
+			<div>
+				<%= link_to "　カートに入れる　", customer_cart_items_path(current_customer.id), class: "btn btn-primary" %>
+			</div>
+		</div>
+	</div>
+
+</div>
