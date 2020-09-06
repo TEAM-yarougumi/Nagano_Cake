@@ -9,6 +9,7 @@ def show_owner
 end
 
 def edit_owner
+  @customer = Customer.find(params[:id])
 end
 
 def update_owner
