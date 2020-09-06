@@ -8,10 +8,10 @@
   <% @customer.each do |customer| %>
     <tr>
       <td>
-        <%= customer.id %>
+        <%=link_to customer.id,owners_edit_owner_costomer_path(customer)%>
       </td>
       <td>
-        <%=link_to customer.last_name,owners_customers_path(customer) %><%=link_to customer.first_name,owners_customers_path(customer)%>
+        <%=link_to customer.last_name, owners_show_owner_costomer_path(customer) %>
       </td>
       <td>
         <%= customer.email %>
