@@ -26,14 +26,14 @@ ActiveRecord::Schema.define(version: 2020_09_01_082525) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.string "last_name", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "last_furigana", default: "", null: false
-    t.string "first_furigana", default: "", null: false
-    t.string "postal_code", default: "", null: false
-    t.string "address", default: "", null: false
-    t.string "telephone_number", default: "", null: false
-    t.string "status", default: "1", null: false
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_furigana"
+    t.string "first_furigana"
+    t.string "postal_code"
+    t.string "address"
+    t.string "telephone_number"
+    t.integer "status", default: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_customers_on_email", unique: true
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 2020_09_01_082525) do
 
   create_table "genres", force: :cascade do |t|
     t.string "name"
+    t.boolean "status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "status", default: false, null: false
   end
 
   create_table "items", force: :cascade do |t|

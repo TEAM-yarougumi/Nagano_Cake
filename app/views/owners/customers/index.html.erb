@@ -1,0 +1,24 @@
+<table class="table table-hover table-inverse">
+  <thead>
+    <th>会員ID</th>
+    <th>氏名</th>
+    <th>メールアドレス</th>
+    <th>ステータス</th>
+   </thead>
+  <% @customer.each do |customer| %>
+    <tr>
+      <td>
+        <%= customer.id %>
+      </td>
+      <td>
+        <%=link_to customer.last_name,owners_customers_path(customer) %><%=link_to customer.first_name,owners_customers_path(customer)%>
+      </td>
+      <td>
+        <%= customer.email %>
+      </td>
+      <td>
+        <%= customer.status %>
+      </td>
+    </tr>
+  <% end %>
+</table>
