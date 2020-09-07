@@ -23,8 +23,8 @@ Rails.application.routes.draw do
   namespace :owners do
     #items
     resources :items, only: [:new, :create, :edit, :update]
-    get	'items/index_owner'    =>  'items#index_owner'
-    get	'items/:id/show_owner' =>  'items#show_owner'
+    get 'items/index_owner'    =>  'items#index_owner'
+    get 'items/:id/show_owner' =>  'items#show_owner'
     
     #genre
     resources :genres, only: [:index, :create, :edit, :update]
