@@ -57,8 +57,8 @@ Rails.application.routes.draw do
     #customers_2
     resources :customers, only: [:show, :edit, :update] do
       #cart_items
-      resources :cart_items, only: [:create, :index, :update, :destroy]
       delete 'cart_items' => 'cart_items#all_destroy'
+      resources :cart_items, only: [:create, :index, :update, :destroy]
       
       #shipping_addresses
       resources :shipping_addresses , only: [:index,  :create, :edit, :update, :destroy]

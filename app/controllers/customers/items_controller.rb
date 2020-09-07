@@ -1,6 +1,5 @@
 class Customers::ItemsController < ApplicationController
   def index
-    binding.pry
     if request.query_string == ""
       # 商品一覧
       @genres = Genre.where(status: true)
