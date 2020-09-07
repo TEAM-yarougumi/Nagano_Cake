@@ -23,17 +23,17 @@ Rails.application.routes.draw do
   namespace :owners do
     #items
     resources :items, only: [:new, :create, :edit, :update]
-    get	'items/index_owner'    =>  'items#index_owner'
-    get	'items/:id/show_owner' =>  'items#show_owner'
+    get 'items/index_owner'    =>  'items#index_owner'
+    get 'items/:id/show_owner' =>  'items#show_owner'
     
     #genre
     resources :genres, only: [:index, :create, :edit, :update]
     
     #customers
     resources :customers, only: [:index]
-    get 'customers/:id/show_owner'      => 'customers#show_owner'
-    get 'customers/:id/edit/edit_owner' => 'customers#edit_owner'
-    patch 'customers/:id/update_owner'  => 'customers#update_owner'
+    get 'customers/:id/show_owner'      => 'customers#show_owner' , as: :show_owner_costomer
+    get 'customers/:id/edit/edit_owner' => 'customers#edit_owner', as: :edit_owner_costomer
+    patch 'customers/:id/update_owner'  => 'customers#update_owner', as: :update_owner_costomer
 
     #orders
     resources :orders, only: [:index, :show, :update]

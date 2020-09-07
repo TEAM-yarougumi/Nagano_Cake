@@ -12,62 +12,62 @@
     <tr>
 		  <th>顧客ID</th>
 		   <td>
-			   <%= @customers.id %>
-          <% if @customer.is_valid == true %>
-            <span>　<i class="fas fa-bullseye blue"></i>退会済
-          <% elsif @customer.is_valid == false %>
-            　<i class="fas fa-bullseye red"></i>有効会員</span>
-          <% end %>
+			   <%= @customer.id %>
+			   <% if @customer.status == true %>
+                    <span class="btn true-user p-1 ml-3">退会済</span>
+                <% else %>
+                    <span class="btn not-user p-1 ml-3">有効会員</span>
+                <% end %>
 		   </td>
     </tr>
     <tr>
 		  <th>氏名</th>
 		  <td>
-			  <%= @customers.last_name %>
-			  <%= @customers.first_name %>
+			  <%= @customer.last_name %>
+			  <%= @customer.first_name %>
 		  </td>
     </tr>
     <tr>
 		  <th>フリガナ</th>
 		  <td>
-			  <%= @customers.last_furigana %>
-			  <%= @customers.first_furigana %>
+			  <%= @customer.last_furigana %>
+			  <%= @customer.first_furigana %>
 		  </td>
     </tr>
     <tr>
 		  <th>郵便番号</th>
 		  <td>
-			  <%= @customers.postal_code %>
+			  <%= @customer.postal_code %>
 		  </td>
     </tr>
     <tr>
 		  <th>住所</th>
 		  <td>
-			  <%= @customers.address %>
+			  <%= @customer.address %>
 		  </td>
     </tr>
     <tr>
 		  <th>電話番号</th>
 		  <td>
-			  <%= @customers.telephone_number %>
+			  <%= @customer.telephone_number %>
 		  </td>
     </tr>
     <tr>
 		  <th>メールアドレス</th>
 		  <td>
-			  <%= @customers.email %>
+			  <%= @customer.email %>
 		  </td>
     </tr>
   </table>
  </div>
-<!--
+
 <div class="row ml-5">
 		<div class="col-2 mt-3">
-			<%= link_to "編集する", owners_customer_path, class:"btn btn-primary btn-sm  mt-20" %>
+			<%= link_to "編集する", owners_top_path, class:"btn btn-primary btn-sm  mt-20" %>
 		</div>
 		<div class="col mt-3">
-			<%= link_to "注文履歴一覧を見る", owners_orders_path(member_id: @member.id), class:"btn btn-primary btn-sm  mt-20" %>
+			<%= link_to "注文履歴一覧を見る", owners_top_path(member_id: @customer.id), class:"btn btn-primary btn-sm  mt-20" %>
 		</div>
   </div>
--->
+
 </div>
