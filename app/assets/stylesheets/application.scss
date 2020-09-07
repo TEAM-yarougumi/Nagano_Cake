@@ -42,6 +42,10 @@
 	display: flex;
 }
 
+.registration_form_list {
+	display: flex;
+}
+
 	/*header部分*/
 header {
 	height: 120px;
@@ -305,4 +309,10 @@ nav {
 	background-size: cover;
 	background-position: center;
 	margin: 30px auto;
+}
+
+/* 商品一覧ページ */
+.genre_nav_list {
+	list-style: none;
+
 }
