@@ -7,7 +7,7 @@ class Owners::GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.new(genre_params) 
+    @genre = Genre.new(genres_params) 
     if @genre.save
     redirect_to owners_genres_path
     end
@@ -19,14 +19,14 @@ class Owners::GenresController < ApplicationController
 
 def update
   @genre = Genre.find(params[:id])
-  @genre.update(genre_params)
+  @genre.update(genres_params)
   if @genre.save
   redirect_to owners_genres_path# 一覧画面へリダイレクト
   end
 end
 
 private
-  def genre_params
+  def genres_params
     params.require(:genre).permit(:name, :status)
   end
 end

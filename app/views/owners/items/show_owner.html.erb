@@ -1,4 +1,4 @@
-<div class="container"> 
+
   <div class="row">
     <div class = "col-lg-3">
       <%= attachment_image_tag @item, :image, format: 'jpeg', size: "300x300"%>
@@ -17,9 +17,8 @@
       <br><h5><%= @item.genre.name %></h5>
       <br><h5><%= @item.no_tax_price %>円</h5>
       <br><h5><%=itemprice = @item.no_tax_price*1.1       
-        itemprice.floor%>円</h5>
+      itemprice.floor%>円</h5>
       <br><h5><%= @item.sale_status %></h5>
       <br><h5><%= link_to "編集する",edit_owners_item_path(@item) %></h5>
     </div>
   </div>
-</div>

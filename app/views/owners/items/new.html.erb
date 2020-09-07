@@ -1,5 +1,5 @@
 <h2>商品新規登録画面</h2>
-	<%= form_with(model:@item, url:	owners_items_path, method: :post) do |f| %>
+	<%= form_with(model:@item, url:	owners_items_path, method: :post , local: true ) do |f| %>
 		<%= attachment_image_tag @item, :image, :fill, 60, 60 %>
 		<%= f.attachment_field :image, placeholder: "商品画像" %>
 		<br><%= f.label :name, "商品名" %>
