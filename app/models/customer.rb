@@ -16,6 +16,7 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :telephone_number, presence: true, uniqueness: true
 
-  enum status: { 退会: 0, 有効: 1}
+  enum status: { unvalied: 0, valied: 1}
+  validates :status, inclusion: { in: Customer.statuses.keys }
   
 end
