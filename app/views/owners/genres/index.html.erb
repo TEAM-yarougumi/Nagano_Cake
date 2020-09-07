@@ -4,9 +4,9 @@
    <%= f.label :name, "ジャンル名" %>
    <%= f.text_field :name %>
 
-   <%= f.radio_button :status, :有効 %>
+   <%= f.radio_button :status, :true %>
    <%= f.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
-   <%= f.radio_button :status, :無効%>
+   <%= f.radio_button :status, :false%>
    <%= f.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
    <%= f.submit'追加' %>
 <% end %>
