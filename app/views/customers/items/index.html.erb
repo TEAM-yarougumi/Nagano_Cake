@@ -1,1 +1,52 @@
-aaaaaaaaaaaaaaaaa
+<div class="row">
+  <div class="col-xs-3">
+    <nav class="genre_nav navbar navbar-dark bg-dark">
+      <div class="genre_nav_title">
+        <h3>ジャンル検索</h3>
+      </div>
+      <div class="genre_nav_list">
+        <ul>
+          <% @genres.each do |genre| %>
+            <%= link_to customers_items_path(:genre_nav => genre.id) do %>
+              <li>
+                <%= genre.name %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <%= link_to  "テスト用商品作成リンク", new_owners_item_path %>
+
+  <div class="col-xs-9">
+    <div class="item_list">
+      <div class="item_title">
+        <div class="item_title_name">
+          <h2><%= @title %>一覧</h2>
+        </div>
+        <div class="item_title_count">
+          <p>(全<%= @items.count %>件)</p>
+        </div>
+      </div>
+      <div class="row item_list">
+        <% @items.each do |item| %>
+          <div class="item_list col-xs-4">
+            <div class="item_image">
+              <%= attachment_image_tag(item, :image, :fill, 230, 180, fallback: "no_image.jpg") %>
+            </div>
+            <div class="item_name">
+              <%= item.name %>
+            </div>
+            <div class="item_price">
+              ¥<%= ( item.no_tax_price * 1.1 ).floor %>
+            </div>
+          </div>
+        <% end %>
+        <%= paginate @items %>
+      </div>
+    </div>
+  </div>
+
+</div>

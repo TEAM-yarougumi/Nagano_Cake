@@ -51,6 +51,10 @@ Rails.application.routes.draw do
 
   scope module: :customers do
     #customers_1
+    get 'customers/:id/leave' => 'customers#leave', as: :leave
+    patch 'customers/out' => 'customers#out'
+
+    #customers_2
     resources :customers, only: [:show, :edit, :update] do
       #cart_items
       resources :cart_items, only: [:create, :index, :update, :destroy]
@@ -62,11 +66,6 @@ Rails.application.routes.draw do
       #orders_1
       resources :orders, only: [:index, :show, :new, :create]
     end
-    
-    
-    #customers_2
-    get 'customers/:id/leave' => 'customers#leave', as: :leave
-    patch 'customers/out' => 'customers#out'
     
     #orders_2
     get '/customers/:customer_id/orders/thanks' => 'orders#thanks'
