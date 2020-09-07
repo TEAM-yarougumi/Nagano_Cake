@@ -6,6 +6,7 @@ def index
 end
 
 def show_owner
+	@customer = Customer.find(params[:id])
 end
 
 def edit_owner
