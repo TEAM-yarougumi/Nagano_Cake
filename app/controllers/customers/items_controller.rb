@@ -16,12 +16,11 @@ class Customers::ItemsController < ApplicationController
     end
   end
 
-  def search
+   def show
+       @item = Item.find(params[:id])
+   end
 
-  end
+   def search
 
-  def show
-
-  end
-  
+   end
 end
