@@ -1,8 +1,8 @@
-  <h4 class="row ml-5  bg-light d-inline">ジャンル編集画面</h4>
+  <h4 class="ow_ganre_title">ジャンル編集画面</h4>
 <%= form_with(model: @genre, url: owners_genre_path(@genre), method: :patch) do |f| %>
 
     <%= f.label :name, "ジャンル" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %>"
 
 
     <%= f.radio_button :status, :true %>
