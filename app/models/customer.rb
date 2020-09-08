@@ -16,7 +16,9 @@ class Customer < ApplicationRecord
   validates :address, presence: true
   validates :telephone_number, presence: true, uniqueness: true
 
-enum status: { unvalied: 0, valied: 1}
-validates :status, inclusion: { in: Customer.statuses.keys }
+
+  enum status: { unvalied: 0, valied: 1}
+  validates :status, inclusion: { in: Customer.statuses.keys }
+
   
 end
