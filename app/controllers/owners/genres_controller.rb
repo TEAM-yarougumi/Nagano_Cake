@@ -1,5 +1,5 @@
 class Owners::GenresController < ApplicationController
-  before_action :authenticate_owner!
+  # before_action :authenticate_owner!
 
   def index
     @genres = Genre.all
