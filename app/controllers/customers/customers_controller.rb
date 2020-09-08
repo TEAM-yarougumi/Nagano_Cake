@@ -31,11 +31,6 @@ class Customers::CustomersController < ApplicationController
   end
 
 private
-<<<<<<< HEAD
-    def customers_params
-      params.require(:customer).permit(:email, :last_name, :first_name, :last_furigana, :first_furigana, :postal_code,:address,:telephone_number,status)
-    end
-=======
   def customers_params
     params.require(:customer).permit(:email, :last_name, :first_name, :last_furigana, :first_furigana, :postal_code,:address,:telephone_number)
   end
@@ -43,5 +38,5 @@ private
   def set_customer
     @customer = Customer.find(params[:id] || params[:customer_id])
   end
->>>>>>> origin/develop
+
 end
