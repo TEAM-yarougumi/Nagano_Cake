@@ -5,11 +5,11 @@
 			<% if @item.errors.any? %>
 				<div class="error_explanation">
 					<h3><%= @item.errors.count %>error prohibited this obj from being saved:</h3>
-						<ul>
-							<% @item.errors.full_messages.each do |message| %>
-								<li><%= message %></li>
-							<% end %>	
-						</ul>
+					<ul>
+						<% @item.errors.full_messages.each do |message| %>
+							<li><%= message %></li>
+						<% end %>	
+					</ul>
 				</div>
 			<% end %>
 			<div class = "col-lg-5">
