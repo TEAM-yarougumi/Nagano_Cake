@@ -22,8 +22,11 @@
         <%= item.genre.name %>
       </td>
       <td>
-        <%= item.sale_status %>
+        <% if item.genre.status == true %>
+          有効
+        <% else %>
+          無効
+        <% end %>
       </td>
-      </tr>
    <% end %>
 </table>

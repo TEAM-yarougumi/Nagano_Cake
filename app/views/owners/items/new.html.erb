@@ -1,16 +1,34 @@
-<h2>商品新規登録画面</h2>
-	<%= form_with(model:@item, url:	owners_items_path, method: :post , local: true ) do |f| %>
-		<%= attachment_image_tag @item, :image, :fill, 60, 60 %>
-		<%= f.attachment_field :image, placeholder: "商品画像" %>
-		<br><%= f.label :name, "商品名" %>
-				<%= f.text_field :name %>
-		<br><%= f.label :content, "商品説明" %>
-				<%= f.text_area :content %>
-		<br><%= f.label :no_tax_price, "税抜き価格" %>
-				<%= f.text_field :no_tax_price %>
-		<br><%= f.label :sale_status, "販売ステータス" %>
-				<%= f.select :sale_status, [["販売中止","販売中止"], ["販売中","販売中"]], include_blank: "選択して下さい"  %>
-		<br><%= f.label :genre_id, "ジャンル" %>
-				<%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい"  %>
-		<br><%= f.submit %>
-	<% end %>
+<div class="container"> 
+	<div class="row">
+		<h2>商品新規登録画面</h2>
+		<%= form_with(model:@item, url:	owners_items_path, method: :post , local: true ) do |f| %>
+			<% if @item.errors.any? %>
+				<div class="error_explanation">
+					<h3><%= @item.errors.count %>error prohibited this obj from being saved:</h3>
+						<ul>
+							<% @item.errors.full_messages.each do |message| %>
+								<li><%= message %></li>
+							<% end %>	
+						</ul>
+				</div>
+			<% end %>
+			<div class = "col-lg-5">
+				<%= attachment_image_tag @item, :image, :fill, 60, 60 %>
+				<%= f.attachment_field :image, placeholder: "商品画像" %>
+			</div>
+			<div class = "col-lg-7">
+				<br><%= f.label :name, "商品名" %>
+						<%= f.text_field :name %>
+				<br><%= f.label :content, "商品説明" %>
+						<%= f.text_area :content %>
+				<br><%= f.label :no_tax_price, "税抜き価格" %>
+						<%= f.text_field :no_tax_price %>
+				<br><%= f.label :sale_status, "販売ステータス" %>
+						<%= f.select :sale_status, [["販売中止","unvalied"], ["販売中","valied"]], include_blank: "選択して下さい"  %>
+				<br><%= f.label :genre_id, "ジャンル" %>
+						<%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "選択して下さい"  %>
+				<br><%= f.submit %>
+			</div>	
+		<% end %>
+	</div>
+</div>
