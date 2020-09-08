@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[5.2]
     create_table :orders do |t|
 
       t.timestamps
-      t.integer :customer_ID
+      t.references :customer, index: false, foreign_key: true
       t.integer :postage, default: 800
       t.integer :billing_amount
       t.integer :payment, default: 0

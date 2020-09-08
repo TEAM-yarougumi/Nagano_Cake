@@ -8,6 +8,12 @@ class Customers::CustomersController < ApplicationController
   end
 
   def out
+    @customer = Customer.find(params[:customer_out_id])
+    @customer.unvalied!
+    if @customer.status == "unvalied"
+      flash[:success] = "退会処理が完了しました。ご利用ありがとうございました。"
+      redirect_to customers_items_path
+    end
   end
 
   def edit
@@ -25,7 +31,17 @@ class Customers::CustomersController < ApplicationController
   end
 
 private
+<<<<<<< HEAD
     def customers_params
       params.require(:customer).permit(:email, :last_name, :first_name, :last_furigana, :first_furigana, :postal_code,:address,:telephone_number,status)
     end
+=======
+  def customers_params
+    params.require(:customer).permit(:email, :last_name, :first_name, :last_furigana, :first_furigana, :postal_code,:address,:telephone_number)
+  end
+
+  def set_customer
+    @customer = Customer.find(params[:id] || params[:customer_id])
+  end
+>>>>>>> origin/develop
 end

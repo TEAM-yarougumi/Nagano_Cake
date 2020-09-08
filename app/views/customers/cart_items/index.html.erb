@@ -1,1 +1,43 @@
-おは
+<div class="cart_title">
+  <h2>ショッピングカート</h2>
+</div>
+<div class="cart_all_destory_btn">
+  <%= link_to  "カートを空にする", customer_cart_items_path, method: :delete %>
+</div>
+<div>
+  <table>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+    <% current_customer.items.each do |item| %>
+    <tr>
+      <td>
+        <%= attachment_image_tag(item, :image, :fill, 230, 180, fallback: "no_image.jpg") %>
+        <% item.name %>
+      </td>
+      <td>
+        <%= ( item.no_tax_price * 1.1 ).floor %>
+      </td>
+      <td>
+        <%= link_to, model %>
+      </td>
+      <td></td>
+      <td>
+        <%= link_to  "削除する", customer_cart_item_path(item.id) %>
+      </td>
+    </tr>
+  </table>
+  <%= link_to  "買い物を続ける", customers_items_path %>
+  <dl>
+    <dd>
+      合計金額
+    </dd>
+    <dt>
+      <%= total_price %>
+    </dt>
+  </dl>
+</div>
