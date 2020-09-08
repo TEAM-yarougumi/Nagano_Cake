@@ -1,5 +1,5 @@
 class Owners::GenresController < ApplicationController
-  # before_action :authenticate_owner! 一時的に無効化
+  # before_action :authenticate_owner!
 
   def index
     @genres = Genre.all
@@ -17,15 +17,15 @@ class Owners::GenresController < ApplicationController
     @genre = Genre.find(params[:id])
   end
 
-def update
-  @genre = Genre.find(params[:id])
-  @genre.update(genre_params)
-  if @genre.save
-  redirect_to owners_genres_path# 一覧画面へリダイレクト
+  def update
+    @genre = Genre.find(params[:id])
+    @genre.update(genre_params)
+    if @genre.save
+    redirect_to owners_genres_path# 一覧画面へリダイレクト
+    end
   end
-end
 
-private
+  private
   def genre_params
     params.require(:genre).permit(:name, :status)
   end

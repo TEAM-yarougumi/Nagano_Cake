@@ -1,6 +1,7 @@
 class Customers::ItemsController < ApplicationController
+  before_action :authenticate_customer!
+  
   def index
-    binding.pry
     if request.query_string == ""
       # 商品一覧
       @genres = Genre.where(status: true)
@@ -16,11 +17,12 @@ class Customers::ItemsController < ApplicationController
     end
   end
 
-   def show
-       @item = Item.find(params[:id])
-   end
+  def show
+    @item = Item.find(params[:id])
+    @cart_item = CartItem.new
+  end
 
-   def search
+  def search
+  end
 
-   end
 end
