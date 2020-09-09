@@ -69,7 +69,7 @@ Rails.application.routes.draw do
     
     #orders_2
     get '/customers/:customer_id/orders/thanks' => 'orders#thanks'
-    post '/customers/:customer_id/orders/:id/confirm' => 'orders#confirm'
+    post '/customers/:customer_id/orders/confirm' => 'orders#confirm', as: :confirm
     get '/customers/:customer_id/orders/:id/complete' => 'orders#complete'    
   end
   
