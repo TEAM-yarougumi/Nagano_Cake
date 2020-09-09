@@ -13,17 +13,9 @@ class Customers::CartItemsController < ApplicationController
       flash[:notice] = "商品をカートに追加しました。"
     else
       cart_item = CartItem.find_by(item_id: @cart_item.item_id)
-      
-      binding.pry
-      
-      cart_item.number += @cart_item.number.to_i
-      
-      binding.pry
+      cart_item.number += params[:cart_item][:number].to_i
       cart_item.save(cart_item_params)
-      
-      binding.pry
-      
-      flash[:notice] = "商品の数量を更新しました。"
+      flash[:notice] = "カート内既存商品の数量を変更しました。"
     end
     redirect_to customer_cart_items_path(current_customer.id)
   end
@@ -32,7 +24,12 @@ class Customers::CartItemsController < ApplicationController
     @cart_item = CartItem.find(params[:id])
     @cart_item.number = params[:cart_item][:number]
     if @cart_item.update(cart_item_params)
-      flash[:notice] = "商品の数量を変更しました。"
+      if current_customer.cart_items.where(number: 0).present?
+        current_customer.cart_items.where(number: 0).destroy_all
+        flash[:notice] = "カートの商品を削除しました"
+      else
+        flash[:notice] = "商品の数量を変更しました。"
+      end
       redirect_to customer_cart_items_path(current_customer.id)
     end
 	end
