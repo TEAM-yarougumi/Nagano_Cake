@@ -3,10 +3,11 @@ class Owners::ItemsController < ApplicationController
 
 def new
   @item = Item.new
+  @genres = Genre.where(status: true)
 end
 
 def create
-  @item = Item.new(item_params)
+  @item = Item.new(items_params)
   if @item.save
     redirect_to owners_items_index_owner_path 
   else 
@@ -29,7 +30,7 @@ end
 
 def update
   @item = Item.find(params[:id])
-  @item.update(item_params)
+  @item.update(items_params)
   if @item.save
   redirect_to owners_items_index_owner_path# 一覧画面へリダイレクト
   end
@@ -37,7 +38,7 @@ end
 
 
 private
-  def item_params
+  def items_params
     params.require(:item).permit(:name, :content, :no_tax_price, :sale_status, :image ,:genre_id)
   end
 end

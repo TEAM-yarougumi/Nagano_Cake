@@ -1,0 +1,22 @@
+<%= form_with(model: @customer, url:  owners_update_owner_costomer_path(@customer), method: :patch, local: true ) do |f| %>
+  <%= f.label :last_name, "(姓)" %>
+  <%= f.text_field :last_name %>
+  <%= f.label :first_name, "(名)" %>
+  <%= f.text_field :first_name%>
+  <br><%= f.label :last_furigana, "(セイ)" %>
+  <%= f.text_field :last_furigana, autofocus: true, autocomplete: "last_furigana"%>
+  <%= f.label :first_furigana, "(メイ)" %>
+  <%= f.text_field :first_furigana, autofocus: true, autocomplete: "first_furigana" %>
+  <br><%= f.label :email, "メールアドレス" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email"%>
+  <br><%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+  <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code"%>
+  <br><%= f.radio_button :status, :unvalied%>
+  <%= f.label :退会%>
+  <%= f.radio_button :status, :valied%>
+  <%= f.label :有効%>
+
+  <%= f.submit "編集履歴を保存する" %>
+<% end %>
+  
+  

@@ -38,4 +38,5 @@ private
   def set_customer
     @customer = Customer.find(params[:id] || params[:customer_id])
   end
+
 end

@@ -26,7 +26,7 @@
               <li><%= link_to "カート", customer_cart_items_path(current_customer), class: "btn btn-default header_list_item" %></li>
               <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-default header_list_item" %></li>
             <% elsif owner_signed_in? %>
-              <li><%= link_to "商品一覧", owners_items_path, class: "btn btn-default header_list_item" %></li>
+              <li><%= link_to "商品一覧", owners_items_index_owner_path, class: "btn btn-default header_list_item" %></li>
               <li><%= link_to "会員一覧", owners_customers_path, class: "btn btn-default header_list_item" %></li>
               <li><%= link_to "注文履歴一覧", owners_orders_path, class: "btn btn-default header_list_item" %></li>
               <li><%= link_to "ジャンル一覧", owners_genres_path, class: "btn btn-default header_list_item" %></li>
