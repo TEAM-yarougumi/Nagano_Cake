@@ -21,7 +21,7 @@ class Customers::OrdersController < ApplicationController
     end
 
     def confirm
-        if params[:choice_shipping_address] == "my_address"
+        if params[:order][:choice_shipping_address] == "my_address"
             @customer = Customer.find(params[:customer_id])
             @order = Order.new
             @order.postal_code = @customer.postal_code
@@ -29,13 +29,14 @@ class Customers::OrdersController < ApplicationController
             @order.address_name = @customer.last_name, @customer.first_name
 
             @cart_items = CartItem.all
+            binding.pry
             @cart_item = CartItem.find(params[:id])
             @cart_item_tax_price =  (@cart_item.item.no_tax_price * 1.1).floor
             @cart_items_total_price = @cart_item_tax_price * @cart_item.number.sum
 
-        elsif params[:choice_shipping_address] == "registered_address"
+        elsif params[:order][:choice_shipping_address] == "registered_address"
             @order = Order.new
-            @shipping_address = ShippingAddress.find(params[:choice_pulldown])
+            @shipping_address = ShippingAddress.find(params[:order][:choice_pulldown])
             @order.postal_code = @shipping_address.shipping_postal_code
             @order.address = @shipping_address.shipping_address
             @order.address_name = @shipping_address.address_name
@@ -47,9 +48,9 @@ class Customers::OrdersController < ApplicationController
 
         else
             @order = Order.new
-            @order.postal_code = params[:postal_code]
-            @order.address = params[:address]
-            @order.address_name = params[:address_name]
+            @order.postal_code = params[:order][:postal_code]
+            @order.address = params[:order][:address]
+            @order.address_name = params[:order][:address_name]
 
             @cart_items = CartItem.all
             @cart_item = CartItem.find(params[:id])
