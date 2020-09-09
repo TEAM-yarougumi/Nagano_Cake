@@ -9,12 +9,12 @@ class Owners::GenresController < ApplicationController
   def create
     @genre = Genre.new(genres_params)
     if @genre.save
-     flash[:notice] = "ジャンル登録完了しました！"
-     redirect_to owners_genres_path
+      flash[:notice] = "ジャンル登録完了しました！"
+      redirect_to owners_genres_path
     else
-     flash[:notice] = "更新に失敗しました。入力を確認してください。"
-     @genre = Genre.all
-     redirect_to owners_genres_path
+      flash[:notice] = "更新に失敗しました。入力を確認してください。"
+      @genre = Genre.all
+      redirect_to owners_genres_path
     end
   end
 
