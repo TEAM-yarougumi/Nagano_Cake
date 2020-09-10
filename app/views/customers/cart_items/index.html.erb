@@ -1,21 +1,24 @@
+<div class="cart_all_destory_btn">
+  <% if current_customer.cart_items.present? %>
+    <%= link_to  "カートを空にする", customer_cart_items_path, method: :delete, data: { confirm: 'カートの中身をすべて削除します。問題なければ、OKをクリックしてください。' } %>
+  <% else %>
+    <p>カートは空です</p>
+  <% end %>
+</div>
 <div class="cart_title">
   <h2>ショッピングカート</h2>
 </div>
-<div class="cart_all_destory_btn">
-  <%= link_to  "カートを空にする", customer_cart_items_path, method: :delete, data: { confirm: 'カートの中身をすべて削除します。問題なければ、OKをクリックしてください。' } %>
-</div>
 <div class="shopping_cart">
-  <% @total_price = 0  %>
-  <% @cart_items.zip(@items).each do |cart_item, item| %>
-    <table>
-      <tr>
-        <th>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th></th>
-      </tr>
-
+  <table class="cart_table">
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+    <% @total_price = 0  %>
+    <% @cart_items.zip(@items).each do |cart_item, item| %>
       <tr>
         <td>
           <%= attachment_image_tag(item, :image, size: "50x50", fallback: "no_image.jpg") %>
@@ -33,26 +36,29 @@
         <td>
           <%= ( item.no_tax_price * 1.1 ).floor * cart_item.number %>
         </td>
-        <td>
+        <td class="delete_cart_item_btn">
           <%= link_to  "削除する", customer_cart_item_path(current_customer.id, cart_item.id), method: :delete %>
         </td>
       </tr>
-    </table>
-    <% @total_price += ( item.no_tax_price * 1.1 ).floor * cart_item.number  %>
-  <% end %>
+      <% @total_price += ( item.no_tax_price * 1.1 ).floor * cart_item.number  %>
+    <% end %>
+  </table>
+  <div class="shopping_btn">
+    <div class="shopping_continue_btn">
+      <%= link_to  "買い物を続ける", customers_items_path %>
+    </div>
 
-  <dl>
-    <dd>
-      合計金額
-    </dd>
-    <dt>
-      <%= @total_price %>円
-    </dt>
-  </dl>
+    <dl class="cart_total_price">
+      <dd>
+        合計金額
+      </dd>
+      <dt>
+        <%= @total_price %> 円
+      </dt>
+    </dl>
+  </div>
 </div>
-<div class="shopping_continue_btn">
-  <%= link_to  "買い物を続ける", customers_items_path %>
-</div>
-<div class="shopping_continue_btn">
+
+<div class="shopping_enter_btn">
   <%= link_to  "情報入力に進む", customers_items_path %>
 </div>
