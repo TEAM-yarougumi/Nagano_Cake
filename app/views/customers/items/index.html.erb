@@ -31,9 +31,9 @@
       <div class="row item_list">
         <% @items.each do |item| %>
           <%= link_to customers_item_path(item.id) do %>
-            <div class="item_list col-xs-4">
+            <div class="item_list col-xs-3">
               <div class="item_image">
-                <%= attachment_image_tag(item, :image, :fill, 230, 180, fallback: "no_image.jpg") %>
+                <%= attachment_image_tag(item, :image, size: "200x180", fallback: "no_image.jpg") %>
               </div>
               <div class="item_name">
                 <%= item.name %>
