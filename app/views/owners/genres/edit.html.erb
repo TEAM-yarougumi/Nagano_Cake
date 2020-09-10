@@ -2,7 +2,7 @@
 <%= form_with(model: @genre, url: owners_genre_path(@genre), method: :patch) do |f| %>
 
     <%= f.label :name, "ジャンル" %>
-    <%= f.text_field :name %>"
+    <%= f.text_field :name %>
 
 
     <%= f.radio_button :status, :true %>

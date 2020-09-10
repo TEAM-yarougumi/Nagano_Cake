@@ -1,8 +1,6 @@
 <div class="container" style="margin:1vw 50px 0;">
   <div class="row">
-    <div class="col-2 text-center">
-      <h5 class="bg-info text-white rounded p-1 mt-5">会員詳細</h5>
-	</div>
+      <h4 class="ow_ganre_title"><%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細</h5>
   </div>
 </div>
 
@@ -13,10 +11,10 @@
 		  <th>顧客ID</th>
 		   <td>
 			   <%= @customer.id %>
-			   <% if @customer.status == true %>
-                    <span class="btn true-user p-1 ml-3">退会済</span>
+			   <% if @customer.status == 0 %>
+                    <span>退会済</span>
                 <% else %>
-                    <span class="btn not-user p-1 ml-3">有効会員</span>
+                    <span>有効会員</span>
                 <% end %>
 		   </td>
     </tr>
@@ -63,7 +61,7 @@
 
 <div class="row ml-5">
 		<div class="col-2 mt-3">
-			<%= link_to "編集する", owners_top_path, class:"btn btn-primary btn-sm  mt-20" %>
+			<%= link_to "編集する", owners_edit_owner_costomer_path, class:"btn btn-primary btn-sm  mt-20" %>
 		</div>
 		<div class="col mt-3">
 			<%= link_to "注文履歴一覧を見る", owners_top_path(member_id: @customer.id), class:"btn btn-primary btn-sm  mt-20" %>

@@ -7,7 +7,7 @@ class Owners::GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.new(genres_params)
+    @genre = Genre.new(genre_params)
     if @genre.save
      flash[:notice] = "ジャンル登録完了しました！"
      redirect_to owners_genres_path
@@ -24,7 +24,7 @@ class Owners::GenresController < ApplicationController
 
 def update
   @genre = Genre.find(params[:id])
-  @genre.update(genres_params)
+  @genre.update(genre_params)
   if @genre.save
     flash[:notice] = "カテゴリーを更新しました"
     redirect_to owners_genres_path# 一覧画面へリダイレクト
@@ -32,7 +32,7 @@ def update
     render :edit
 
   end
-
+end
 
   private
   def genre_params
