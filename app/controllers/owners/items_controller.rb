@@ -18,12 +18,11 @@ end
 
 def index_owner
   @item = Item.all
+  @items = Item.all.page(params[:page]).per(10)
 end
 
 def show_owner
   @item = Item.find(params[:id])
-  @items = Item.all.page(params[:page])
-  
 end
 
 def edit

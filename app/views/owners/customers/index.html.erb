@@ -1,4 +1,4 @@
-<h4 class="ow_ganre_title">会員一覧</h4>
+<h3 class="ow_ganre_title">会員一覧</h3>
 <table class="table table-bordered">
   <thead>
     <tr class="active">
@@ -18,13 +18,10 @@
       <td>
         <%= customer.email %>
       </td>
-         <td>
-            <% if customer.status == 0 %>
-               有効
-            <% else %>
-               無効
-            <% end %>
-         </td>
+      <td>
+        <%= customer.status %>
+      </td>
     </tr>
   <% end %>
 </table>
+<%= paginate @customers %>

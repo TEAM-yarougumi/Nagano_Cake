@@ -1,4 +1,4 @@
-<h4 class="ow_ganre_title">商品新規登録</h4>
+<h3 class="ow_ganre_title">商品新規登録</h3>
 	<div class="row">
 		<%= form_with(model:@item, url:	owners_items_path, method: :post , local: true ) do |f| %>
 			<% if @item.errors.any? %>
@@ -17,15 +17,15 @@
 			</div>
 			<div class = "col-lg-4">
 				<br><br><%= f.label :name, "商品名" %>
-							<%= f.text_field :name %>
+					<%= f.text_field :name %>
 				<br><br><%= f.label :content, "商品説明" %>
-							<%= f.text_area :content %>
-				<br><br><%= f.label :no_tax_price, "税抜き価格" %>
-							<%= f.text_field :no_tax_price %>
-				<br><br><%= f.label :sale_status, "販売ステータス" %>
-							<%= f.select :sale_status, [["販売中止","unvalied"], ["販売中","valied"]], include_blank: "選択して下さい"  %>
+					<%= f.text_area :content %>
 				<br><br><%= f.label :genre_id, "ジャンル" %>
-							<%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "選択して下さい"  %>
+					<%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "選択して下さい"  %>
+				<br><br><%= f.label :no_tax_price, "税抜き価格" %>
+					<%= f.text_field :no_tax_price %>
+				<br><br><%= f.label :sale_status, "販売ステータス" %>
+					<%= f.select :sale_status, [["販売中止","unvalid"], ["販売中","valid"]], include_blank: "選択して下さい"  %>
 			</div>	
 			<div class = "col-lg-3 newaction">
 			<br><br><%= f.submit'新規登録',class: "btn btn-primary px-3" %>
