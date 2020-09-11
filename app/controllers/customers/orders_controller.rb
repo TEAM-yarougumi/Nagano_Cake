@@ -44,6 +44,9 @@ class Customers::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
+    @order_items = @order.order_items
+    @items = @order.items
   end
 
   def new

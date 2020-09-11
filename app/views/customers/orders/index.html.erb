@@ -44,7 +44,7 @@
                 発送準備中
               <% when "shipped" %>
                 発送済み
-            <% end %>            
+            <% end %>
           </td>
           <td class="cart_item_btn">
             <%= link_to  "表示する", customer_order_path(current_customer.id, order.id) %>
