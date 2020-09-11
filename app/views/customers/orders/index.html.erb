@@ -12,7 +12,6 @@
       <th>注文詳細</th>
     </tr>
       <% @orders.each do |order| %>
-      <% binding.pry %>
       <tr>
         <td>
           <%= simple_time(order.created_at) %>
@@ -23,13 +22,19 @@
           <%= order.address_name %>
         </td>
         <td>
-          
+          <%
+=begin%>
+ <% order.items.each do |item| %>
+            <%= item.name %><br>
+          <% end %> 
+<%
+=end%>
         </td>
         <td>
           <%= order.billing_amount.to_s(:delimited, delimiter: ',') %> 円
         </td>
         <td>
-          <% case order.status %>
+          <% case order.status %> 
             <% when "waiting_payment" %>
               入金待ち
             <% when "payment_confirm" %>
@@ -42,7 +47,7 @@
               発送済み
           <% end %>            
         </td>
-        <td>
+        <td class="cart_item_btn">
           <%= link_to  "表示する", customer_order_path(current_customer.id, order.id) %>
         </td>
       </tr>

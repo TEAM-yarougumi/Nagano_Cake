@@ -36,7 +36,7 @@
         <td>
           <%= (( item.no_tax_price * 1.1 ).floor * cart_item.number).to_s(:delimited, delimiter: ',') %>
         </td>
-        <td class="delete_cart_item_btn">
+        <td class="cart_item_btn">
           <%= link_to  "削除する", customer_cart_item_path(current_customer.id, cart_item.id), method: :delete %>
         </td>
       </tr>

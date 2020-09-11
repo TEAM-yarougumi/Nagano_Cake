@@ -374,15 +374,12 @@ nav {
 	font-size: 24px;
 }
 
-/* 商品一覧ページ */
-
-
-/* カート一覧ページ */
+/* カート一覧ページ & 注文履歴一覧 */
 .cart_title h2 {
+	display: inline-block;
 	margin-left: 100px;
 	font-size: 30px;
 	background-color: lightgrey;
-	width: 280px;
 	border-top: solid gray;
 	border-bottom: solid gray;
 	padding: 2px 3px;
@@ -391,7 +388,7 @@ nav {
 .cart_table {
 	border-collapse: collapse;
 	border: solid 2px gray;
-	margin: 15px 0 25px 20%;
+	margin: 30px auto;
 }
 
 .cart_table th,
@@ -405,8 +402,15 @@ nav {
 	background-color: rgb(219, 219, 219);
 }
 
+.shopping_btn {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
 .cart_all_destory_btn > a,
-.delete_cart_item_btn > a,
+.cart_item_btn > a,
 .shopping_continue_btn > a, {
 	padding: 0 10px;
 	line-height: 45px;
@@ -419,18 +423,19 @@ nav {
 }
 
 .cart_all_destory_btn > a:hover,
-.delete_cart_item_btn > a:hover,
+.cart_item_btn > a:hover,
 .shopping_continue_btn > a:hover, {
 	background-color: #5D99FF;
 	text-decoration: none;
 }
 
 .cart_all_destory_btn {
-	margin: 20px 0 0 100px;
+	margin: 20px 0 0 10%;
 }
 
-.shopping_continue_btn {
-	margin-left: 100px;
+.shopping_enter_btn {
+	text-align: center;
+	margin-bottom: 50px;
 }
 
 .shopping_enter_btn > a {
@@ -440,11 +445,9 @@ nav {
 	border: none;
 	border-radius: 10px;
 	display: inline-block;
-	text-align: center;
 	padding: 10px;
 	font-size: 20px;
 	width: 350px;
-	margin: 30px 0 30px 330px;
 }
 
 .shopping_enter_btn > a:hover {
@@ -452,19 +455,12 @@ nav {
 	text-decoration: none;
 }
 
-.shopping_btn {
-	display: flex;
-}
 .cart_total_price {
 	display: flex;
-	margin-left: 450px;
 	width: 220px;
 	font-size: 20px;
 	border: solid 2px gray;
-}
-
-.cart_total_price dd {
-	margin-right: 20px;
+	justify-content: space-around;
 }
 
 .cart_table input[type="number"] {
