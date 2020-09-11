@@ -25,8 +25,8 @@
 				<br><br><%= f.label :no_tax_price, "税抜き価格" %>
 					<%= f.text_field :no_tax_price %>
 				<br><br><%= f.label :sale_status, "販売ステータス" %>
-					<%= f.select :sale_status, [["販売中止","unvalid"], ["販売中","valid"]], include_blank: "選択して下さい"  %>
-			</div>	
+					<%= f.select :sale_status, [["販売中止","unavailable"], ["販売中","available"]], include_blank: "選択して下さい"  %>
+			</div>
 			<div class = "col-lg-3 newaction">
 			<br><br><%= f.submit'新規登録',class: "btn btn-primary px-3" %>
 			</div>	

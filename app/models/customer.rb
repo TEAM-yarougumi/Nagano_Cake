@@ -18,7 +18,7 @@ class Customer < ApplicationRecord
   validates :telephone_number, presence: true, uniqueness: true
 
 
-  enum status: { unvalid: 0, valid: 1}
+  enum status: { unavailable: 0, available: 1}
   validates :status, inclusion: { in: Customer.statuses.keys }
 
   

@@ -35,9 +35,9 @@
   </div>
   <div class="field">
     <%= f.label :status, "会員ステータス", class: "form_label" %>
-    <%= f.radio_button :status, :valied %>
+    <%= f.radio_button :status, :available %>
     <%= f.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
-    <%= f.radio_button :status, :unvalied %>
+    <%= f.radio_button :status, :unavailable %>
     <%= f.label :status, "退会済み", {value: :false, style: "display: inline-block;"} %>
   <div>
 

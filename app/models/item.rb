@@ -9,7 +9,7 @@ class Item < ApplicationRecord
 	validates :content, presence: true
 	validates :no_tax_price, presence: true
 	
-	enum sale_status: { unvalid: 0, valid: 1}
+	enum sale_status: { unavailable: 0, available: 1}
 	validates :sale_status, inclusion: { in: Item.sale_statuses.keys }
   
 	attachment :image
