@@ -68,8 +68,18 @@
 
 <!-- 注文情報送信部分 -->
 <%= form_with(model: @order, url: customer_orders_path(current_customer.id), method: :post, local: true) do |f| %>
-	<%= f.hidden_field :payment %>
-	<%= f.hidden_field :choice_shipping_address, value: @choice_shipping_address %>
+	<%= f.hidden_field :payment, value: params[:payment] %>
 	<%= f.hidden_field :billing_amount, value: (@cart_items_total_price) + (@order.postage) %>
+
+	<% if params[:choice_shipping_address] == "my_address" %>
+		<%= f.hidden_field :postal_code, value: @customer.postal_code %>
+		<%= f.hidden_field :address, value: @customer.address %>
+		<%= f.hidden_field :address_name, value: (@customer.last_name) + (@customer.first_name) %>
+	<% else %>
+		<%= f.hidden_field :postal_code, value: @order.postal_code %>
+		<%= f.hidden_field :address, value: @order.address %>
+		<%= f.hidden_field :address_name, value: @order.address_name %>
+	<% end %>
+
 	<%= f.submit "　購入を確定する　", class: "btn btn-success" %>
 <% end %>
