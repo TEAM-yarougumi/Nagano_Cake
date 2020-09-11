@@ -1,19 +1,19 @@
 <h2>注文履歴詳細</h2>
-    <div class="field">
-      <div>
-      購入者
+      <div class="field">
+        <div>
+        購入者
+        </div>
+        <div>
+        <p><%= @order.customer.last_name %><%= @order.customer.first_name %></p>
+        </div>
       </div>
-      <div>
-      （購入者名）
-      </div>
-    </div>
 
       <div class="field">
         <div>
           配送先
         </div>
         <div>
-          （配送先）
+          <p><%= @order.address %></p>
         </div>
       </div>
 
@@ -22,18 +22,24 @@
           支払い方法
         </div>
         <div>
-         　支払い方法
+          <% case @order.payment %>
+          <% when "credit_card" %>
+           クレジットカード
+          <% when "bank_transfer" %>
+           銀行振込
+        <% end %>
         </div>
       </div>
 
 
-      <div>注文ステータス</div>
-          <div>
-            注文ステータス
-          </div>
+      <div>
+        注文ステータス
+      </div>
 
-        <div>
-        </div>
+        <%= form_with(model: @order, local: true, url: owners_order_path(@order), method: :patch)do |f| %>
+        <%= f.select :status, [["入金待ち", 0],["入金確認", 1],["製作中", 2],["発送準備中", 3],["発送済み", 4],], value: @order.status %>
+        <%= f.submit "更新", class: "btn btn-primary" %>
+        <% end %>
 
 
    <table class="table table-hover table-bordered table-inverse">
@@ -48,25 +54,29 @@
               </tr>
           </thead>
         <tbody>
-
+        <% @order.order_items.each do |order_item| %>
           <tr>
                   <td>
-                    商品名
+                    <%= order_item.item.name %>
                   </td>
                   <td>
-                    単価
+                    <%= (order_item.item.no_tax_price * 1.1).floor %>
                   </td>
                   <td>
-                    数量
+                    <%= order_item.number %>
                   </td>
                   <td>
-                    小計
+                    <%= ((order_item.number * order_item.item.no_tax_price)* 1.1).floor %>
                   </td>
                   <td>
-                    ステータス
+                    <%= form_with(url: owners_order_path, method: :patch, local:true)  do |f| %>
+                    <%= f.select :make_status, [["着手不可", 0],["制作待ち", 1],["製作中", 2],["制作完了", 3],] %>
+                    <%= f.submit "更新", class: "btn btn-primary" %>
+                    <% end %>
                   </td>
 
               </tr>
+        <% end %>
         </tbody>
       </table>
 
@@ -74,15 +84,22 @@
       <table class="table table-hover table-bordered table-condensed">
         <tr>
           <th>商品合計</th>
-          <td>a</td>
+          <td>
+               <% @order.order_items.each do |order_item| %>
+                <% sab_total = ((order_item.number * order_item.item.no_tax_price)* 1.1).floor %>
+                <% @sum += sab_total %>
+                <% end %>
+                ¥<%= @sum %></td>
         </tr>
         <tr>
           <th>送料</th>
-          <td>a</td>
+          <td>¥800</td>
         </tr>
         <tr>
           <th>請求金額合計</th>
-          <td>a</td>
+          <td>
+            ¥<%= (@sum*1.1+800).floor %>
+          </td>
         </tr>
         </table>
         <div>
