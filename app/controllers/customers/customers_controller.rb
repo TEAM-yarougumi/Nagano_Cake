@@ -9,8 +9,8 @@ class Customers::CustomersController < ApplicationController
 
   def out
     @customer = Customer.find(params[:customer_out_id])
-    @customer.unvalied!
-    if @customer.status == "unvalied"
+    @customer.unavailable!
+    if @customer.status == "unavailable"
       flash[:success] = "退会処理が完了しました。ご利用ありがとうございました。"
       redirect_to customers_items_path
     end
