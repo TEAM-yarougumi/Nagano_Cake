@@ -1,15 +1,15 @@
-  <h4 class="ow_ganre_title">ジャンル編集画面</h4>
-<%= form_with(model: @genre, url: owners_genre_path(@genre), method: :patch) do |f| %>
+<h3 class="ow_ganre_title">ジャンル編集画面</h3>
+  <div class="row" style="margin-top:50px;">
+    <%= form_with(model: @genre, url: owners_genre_path(@genre), method: :patch) do |f| %>
 
-    <%= f.label :name, "ジャンル" %>
-    <%= f.text_field :name %>
+      <%= f.label :name, "ジャンル" %>
+      <%= f.text_field :name %>
 
 
-    <%= f.radio_button :status, :true %>
-    <%= f.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
-    <%= f.radio_button :status, :false %>
-    <%= f.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
-
-	<%= f.submit '変更を保存する',class: "btn btn-primary px-3" %>
-
-<% end %>
+      <%= f.radio_button :status, :true %>
+      <%= f.label :status, "有効", {value: :true, style: "display: inline-block;"} %>
+      <%= f.radio_button :status, :false %>
+      <%= f.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
+      <%= f.submit '変更を保存する',class: "btn btn-primary px-3" %>
+    <% end %>
+  </div>
