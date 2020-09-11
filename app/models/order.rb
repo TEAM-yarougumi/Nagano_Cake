@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :customer 
+  belongs_to :customer, optional: true
   has_many :order_items, dependent: :destroy
   has_many :items, through: :order_items # 中間テーブルのアソシエーション定義
 
@@ -10,5 +10,6 @@ class Order < ApplicationRecord
   enum payment: { credit_card: 0, bank_transfer: 1 }
   validates :payment, inclusion: { in: Order.payments.keys }
 
-  enum status: { 入金待ち: 0, 入金確認: 1, 製作中: 2, 発送準備中: 3, 発送済: 4 }
+  enum status: { waiting_payment: 0, payment_confirm: 1, making: 2, ready_to_ship: 3, shipped: 4 }
+  validates :status, inclusion: { in: Order.statuses.keys }
 end
