@@ -3,6 +3,7 @@ class Item < ApplicationRecord
 	has_many :cart_items, dependent: :destroy
 	has_many :customers, through: :cart_items # 中間テーブルのアソシエーション定義
 	has_many :order_items, dependent: :destroy
+	has_many :orders, through: :order_items
 
 	validates :name, presence: true
 	validates :content, presence: true

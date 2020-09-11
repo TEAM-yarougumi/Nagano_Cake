@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   belongs_to :customer, optional: true
   has_many :order_items, dependent: :destroy
+  has_many :items, through: :order_items # 中間テーブルのアソシエーション定義
 
   validates :address, presence: true
   validates :address_name, presence: true
