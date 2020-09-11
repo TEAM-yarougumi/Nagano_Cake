@@ -16,6 +16,7 @@
 			</div>
 
 			<p>お届け先</p>
+			<!-- 自身の住所 -->
 			<div class="field form-group">
 				<%= f.radio_button :choice_shipping_address, :my_address, checked: true %>
 				<%= f.label :choice_shipping_address, "ご自身の住所", {value: :my_address} %>
@@ -25,7 +26,7 @@
 				<%= @customer.last_name %><%= @customer.first_name %>
 			</div>
 			
-
+			<!-- 登録済住所 -->
 			<div class="field form-group">
 				<%= f.radio_button :choice_shipping_address, :registered_address %>
 				<%= f.label :choice_shipping_address, "登録済住所から選択", {value: :registered_address} %>
@@ -34,6 +35,7 @@
 				<%= f.collection_select(:choice_pulldown, @shipping_addresses, :id, :registered_shipping_address) %>
 			</div>
 
+			<!-- 新しい住所 -->
 			<div class="field form-group">
 				<%= f.radio_button :choice_shipping_address, :new_address %>
 				<%= f.label :choice_shipping_address, "新しいお届け先", {value: :new_address} %>
