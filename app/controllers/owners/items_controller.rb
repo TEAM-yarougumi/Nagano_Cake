@@ -22,6 +22,7 @@ end
 
 def show_owner
   @item = Item.find(params[:id])
+  @items = Item.all.page(params[:page])
   
 end
 
