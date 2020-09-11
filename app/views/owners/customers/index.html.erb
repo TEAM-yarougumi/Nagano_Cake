@@ -18,13 +18,9 @@
       <td>
         <%= customer.email %>
       </td>
-         <td>
-            <% if customer.status == 0 %>
-               有効
-            <% else %>
-               無効
-            <% end %>
-         </td>
+      <td>
+        <%= customer.status %>
+      </td>
     </tr>
   <% end %>
 </table>

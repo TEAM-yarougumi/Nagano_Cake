@@ -1,56 +1,56 @@
-<div class="cart_title">
-  <h2>注文履歴一覧</h2>
-</div>
-<div class="shopping_cart">
-  <table class="cart_table">
-    <tr>
-      <th>注文日</th>
-      <th>配送先</th>
-      <th>注文商品</th>
-      <th>支払金額</th>
-      <th>ステータス</th>
-      <th>注文詳細</th>
-    </tr>
-      <% @orders.each do |order| %>
+<% if @orders.blank? %>
+  <p>履歴はありません</p> 
+<% else %>
+  <div class="cart_title">
+    <h2>注文履歴一覧</h2>
+  </div>
+  <div class="shopping_cart">
+    <table class="cart_table">
       <tr>
-        <td>
-          <%= simple_time(order.created_at) %>
-        </td>
-        <td>
-          <%= order.postal_code %><br>
-          <%= order.address %><br>
-          <%= order.address_name %>
-        </td>
-        <td>
-          <%
-=begin%>
- <% order.items.each do |item| %>
-            <%= item.name %><br>
-          <% end %> 
-<%
-=end%>
-        </td>
-        <td>
-          <%= order.billing_amount.to_s(:delimited, delimiter: ',') %> 円
-        </td>
-        <td>
-          <% case order.status %> 
-            <% when "waiting_payment" %>
-              入金待ち
-            <% when "payment_confirm" %>
-              入金確認
-            <% when "making" %>
-              製作中
-            <% when "ready_to_ship" %>
-              発送準備中
-            <% when "shipped" %>
-              発送済み
-          <% end %>            
-        </td>
-        <td class="cart_item_btn">
-          <%= link_to  "表示する", customer_order_path(current_customer.id, order.id) %>
-        </td>
+        <th>注文日</th>
+        <th>配送先</th>
+        <th>注文商品</th>
+        <th>支払金額</th>
+        <th>ステータス</th>
+        <th>注文詳細</th>
       </tr>
-    <% end %>
-  </table>
-</div>
+        <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <%= simple_time(order.created_at) %>
+          </td>
+          <td>
+            <%= order.postal_code %><br>
+            <%= order.address %><br>
+            <%= order.address_name %>
+          </td>
+          <td>
+            <% order.items.each do |item| %>
+              <%= item.name %><br>
+            <% end %> 
+          </td>
+          <td>
+            <%= order.billing_amount.to_s(:delimited, delimiter: ',') %> 円
+          </td>
+          <td>
+            <% case order.status %> 
+              <% when "waiting_payment" %>
+                入金待ち
+              <% when "payment_confirm" %>
+                入金確認
+              <% when "making" %>
+                製作中
+              <% when "ready_to_ship" %>
+                発送準備中
+              <% when "shipped" %>
+                発送済み
+            <% end %>            
+          </td>
+          <td class="cart_item_btn">
+            <%= link_to  "表示する", customer_order_path(current_customer.id, order.id) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% end %>

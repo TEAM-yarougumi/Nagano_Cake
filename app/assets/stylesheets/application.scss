@@ -18,6 +18,10 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* font-awesome使用のため以下追記 */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 /* 暫定エラーメッセージ用 (参考：views\customers\customers\edit.html.erb) */
 .error_explanation {
 	border: solid red;
@@ -465,4 +469,14 @@ nav {
 
 .cart_table input[type="number"] {
 	width: 70px;
+}
+// ow側 items/new
+.newaction{
+padding-top: 240px;
+}
+.col-lg-5{
+padding-top: 130px;
+}
+.fa-plus-circle{
+	padding-left: 1000px;
 }
