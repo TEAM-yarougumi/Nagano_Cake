@@ -4,7 +4,7 @@
 	</div>
 
 	<div>
-		<%= form_with(model: @order , url: confirm_path(current_customer.id), method: :post, remote: false) do |f| %>
+		<%= form_with(url: confirm_path(current_customer.id), method: :post, local: true) do |f| %>
 			<p>支払方法</p>
 			<div class="field form-group">
 				<%= f.radio_button :payment, :credit_card, checked: true %>

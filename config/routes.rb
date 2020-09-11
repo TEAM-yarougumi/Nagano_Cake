@@ -54,6 +54,11 @@ Rails.application.routes.draw do
     get 'customers/:id/leave' => 'customers#leave', as: :leave
     patch 'customers/out' => 'customers#out'
 
+    #orders_1
+    get '/customers/:customer_id/orders/thanks' => 'orders#thanks'
+    post '/customers/:customer_id/orders/confirm' => 'orders#confirm', as: :confirm
+    get '/customers/:customer_id/orders/:id/complete' => 'orders#complete', as: :complete
+
     #customers_2
     resources :customers, only: [:show, :edit, :update] do
       #cart_items
@@ -63,14 +68,11 @@ Rails.application.routes.draw do
       #shipping_addresses
       resources :shipping_addresses , only: [:index,  :create, :edit, :update, :destroy]
       
-      #orders_1
+      #orders_2
       resources :orders, only: [:index, :show, :new, :create]
     end
     
-    #orders_2
-    get '/customers/:customer_id/orders/thanks' => 'orders#thanks'
-    post '/customers/:customer_id/orders/confirm' => 'orders#confirm', as: :confirm
-    get '/customers/:customer_id/orders/:id/complete' => 'orders#complete'    
+    
   end
   
   
