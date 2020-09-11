@@ -9,6 +9,7 @@ end
 def create
   @item = Item.new(items_params)
   if @item.save
+    flash[:notice] = "商品登録完了しました！"
     redirect_to owners_items_index_owner_path 
   else 
     render  'new'
@@ -32,8 +33,10 @@ def update
   @item = Item.find(params[:id])
   @item.update(items_params)
   if @item.save
+  flash[:notice] = "商品登録更新しました！"
   redirect_to owners_items_index_owner_path# 一覧画面へリダイレクト
-  end
+  
+end
 end
 
 
