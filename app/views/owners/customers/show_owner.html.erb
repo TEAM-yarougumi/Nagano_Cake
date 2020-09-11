@@ -11,11 +11,7 @@
 		  <th>顧客ID</th>
 		   <td>
 			   <%= @customer.id %>
-			   <% if @customer.status == 0 %>
-                    <span>退会済</span>
-                <% else %>
-                    <span>有効会員</span>
-                <% end %>
+			   <%= @customer.status %>
 		   </td>
     </tr>
     <tr>

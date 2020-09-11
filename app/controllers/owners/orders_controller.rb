@@ -1,16 +1,18 @@
 class Owners::OrdersController < ApplicationController
   before_action :authenticate_owner!
 
-def index
-end
+	def index
+		@orders = Order.all.page(params[:page]).per(10)
+	end
 
-def show
-end
+	def show
+	end
 
-def update_order
-end
+	def update
+	end
 
-def update
-end
-
+	private
+	def order_status
+	    params.require(:order).permit(:order_status)
+	end
 end
