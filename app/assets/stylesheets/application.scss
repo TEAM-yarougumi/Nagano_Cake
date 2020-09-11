@@ -473,16 +473,43 @@ nav {
 }
 
 /* EC注文履歴詳細 */
+.ec_order_information dl {
+	margin: 0;
+	padding: 0;
+}
+
+.ec_order_information dl {
+	border-top: gray solid 2px;
+	border-left: gray solid 2px;
+	border-right: gray solid 2px;
+	border-bottom: gray solid 2px;
+	display: flex;
+	flex-wrap: wrap;
+	width: 300px;
+}
+
+
 .ec_order_information dt {
-	float: left;
-	
+	background-color: lightgray;
 }
 
+.ec_order_information dt,
 .ec_order_information dd {
-	margin-left: 100px;
+	padding: 15px;
+	width: 50%;
+	border-right: gray dashed 1px;
+	border-bottom: gray dashed 1px;
 }
 
+.ec_order_flex {
+	display: flex;
+	justify-content: space-around;
+}
 
+.ec_order_information caption {
+	color: black;
+	font-size: 30px;
+}
 
 
 
