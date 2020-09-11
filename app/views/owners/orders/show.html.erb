@@ -48,8 +48,8 @@
               </tr>
           </thead>
         <tbody>
-
-          <tr>
+          <% @order.order_items.each do |order_item| %>
+          　　　<tr>
                   <td>
                     商品名
                   </td>
@@ -65,7 +65,7 @@
                   <td>
                     ステータス
                   </td>
-
+                  <% end %>
               </tr>
         </tbody>
       </table>
