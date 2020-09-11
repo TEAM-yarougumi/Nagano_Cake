@@ -1,4 +1,4 @@
-      <h4 class="ow_ganre_title"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h5>
+<h3 class="ow_ganre_title"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3>
 <%= form_with(model: @customer, url:  owners_update_owner_costomer_path(@customer), method: :patch, local: true ) do |f| %>
   <div class="field">
     <div class="form_label bold">会員ID　　<%= @customer.id %></div>
