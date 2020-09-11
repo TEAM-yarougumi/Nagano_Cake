@@ -1,0 +1,82 @@
+<div class="cart_title">
+  <h2>注文履歴詳細</h2>
+</div>
+<div class="ec_order_flex">
+  <div class="ec_order_information">
+    <h2>注文情報</h2>
+    <dl>
+      <dt>注文日</dt>
+      <dd><%= simple_time(@order.created_at) %></dd>
+      <dt>配送先</dt>
+      <dd><%= @order.address %></dd>
+      <dt>支払方法</dt>
+      <dd>
+        <% case @order.payment %>
+          <% when "credit_card" %>
+            クレジットカード
+          <% when "bank_transfer" %>
+            銀行振込
+        <% end %>
+      </dd>
+      <dt>ステータス</dt>
+      <dd>
+        <% case @order.status %> 
+          <% when "waiting_payment" %>
+            入金待ち
+          <% when "payment_confirm" %>
+            入金確認
+          <% when "making" %>
+            製作中
+          <% when "ready_to_ship" %>
+            発送準備中
+          <% when "shipped" %>
+            発送済み
+        <% end %>
+      </dd>
+    </dl>
+  </div>
+  <div class="ec_order_information">
+    <h2>請求情報</h2>
+    <dl>
+      <dt>商品合計</dt>
+      <dd>
+        <% @total_price = 0 %>
+        <% @order_items.each do |order_item| %>
+          <% @total_price += order_item.buy_price * order_item.number %>
+        <% end %>
+        <%= @total_price.to_s(:delimited, delimiter: ',')%>
+      </dd>
+      <dt>配送料</dt>
+      <dd><%= @order.postage.to_s(:delimited, delimiter: ',') %></dd>
+      <dt>ご請求額</dt>
+      <dd><%= @order.billing_amount.to_s(:delimited, delimiter: ',') %></dd>
+    </dl>
+  </div>
+</div>
+<div class="ec_order_information">
+  <table class="cart_table">
+    <caption>注文内容</caption>
+    <tr>
+      <th>商品</th>
+      <th>単価（税込）</th>
+      <th>個数</th>
+      <th>小計</th>
+    </tr>
+    <% @items.zip(@order_items).each do |item, order_item| %>
+      <tr>
+        <td>
+          <%= item.name %>
+        </td>
+        <td>
+          <%= ( item.no_tax_price * 1.1 ).floor.to_s(:delimited, delimiter: ',') %>
+        </td>
+        <td>
+          <%= order_item.number %>
+        </td>
+        <td>
+          <%= (( item.no_tax_price * 1.1 ).floor * order_item.number).to_s(:delimited, delimiter: ',') %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
