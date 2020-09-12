@@ -7,23 +7,39 @@ class Owners::OrdersController < ApplicationController
 	end
 
 	def show
+		@customer = Customer.find(params[:id])
 		@order = Order.find(params[:id])
 		@sum = 0
 	end
 
 	def update
 		@order = Order.find(params[:id])
+		
+		if @order.update(orders_params)
+			flash[:notice] = "更新しました！"
+			if @order.status == "payment_confirm"
+				@order.order_items.each do |order_item|
+					order_item.standby_making!
+				end	
+		  end
+			redirect_to owners_orders_path
+		end
+	end
 
-		@order.update(orders_params)
-			if @order.save
+	def update_order
+		@order_item = OrderItem.find(params[:id])
+		@order_item.update(order_items_params)
+		if @order_item.save
 			flash[:notice] = "更新しました！"
 			redirect_to owners_orders_path
-			end	
-
+		end	
 	end
 
 	private
 	def orders_params
-	    params.require(:order).permit(:customer_id, :postage, :billing_amount, :payment, :address, :postal_code, :status, :address_name,)
+	    params.require(:order).permit(:customer_id, :postage, :billing_amount, :payment, :address, :postal_code, :status, :address_name )
+	end
+	def order_items_params
+		  params.require(:order_item).permit(:item_status)
 	end
 end
