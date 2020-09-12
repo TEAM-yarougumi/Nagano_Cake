@@ -3,7 +3,7 @@
 	<div class="col-xs-10 ">
 		<table class="table table-hover table-bordered table-condensed">
 		  <thead>
-		    <tr>
+		    <tr class="active">
 		      <th>購入日時</th>
 	      	  <th>購入者</th>
 		      <th>注文個数</th>
@@ -18,7 +18,7 @@
 		         <%= order.created_at. strftime('%Y/%m/%d/%R:%S') %>
 		        </td>
 		        <td>
-		        	<%= link_to order.customer.first_name + order.customer.last_name, owners_order_path(order) %>
+		        	<%= link_to order.customer.last_name + order.customer.first_name, owners_order_path(order) %>
 		        </td>
 		        <td>
 		        	<% sum = 0 %>
@@ -39,9 +39,8 @@
 									発送準備中
 								<% when "shipped" %>
 									発送済み
-        			<% end %>  
+        			<% end %>
 						 </td>
-				
      	    </tr>
 		   <% end %>
 		  </tbody>

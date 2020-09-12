@@ -6,12 +6,16 @@
 
 <div class="continer mt-4">
 <div class="row ml-5">
-	<table class="col-4 table table-border bg-light">
+	<table class="col-4 table table-border bg-light" style="margin-top:20px;">
     <tr>
 		  <th>顧客ID</th>
 		   <td>
 			   <%= @customer.id %>
-			   <%= @customer.status %>
+		        <%if @customer.status == "available"%>
+		        <span><%= "有効会員" %></span>
+		        <% else %>
+		        <span><%= "退会済み" %></span>
+		        <% end %>
 		   </td>
     </tr>
     <tr>
