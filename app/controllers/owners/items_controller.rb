@@ -10,7 +10,7 @@ def create
   @item = Item.new(items_params)
   if @item.save
     flash[:notice] = "商品登録完了しました！"
-    redirect_to owners_items_index_owner_path 
+    redirect_to owners_path(@item) 
   else 
     render  'new'
   end
