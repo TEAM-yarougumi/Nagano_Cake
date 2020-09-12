@@ -1,80 +1,53 @@
-<h2>注文履歴詳細</h2>
-    <div class="field">
-      <div>
-      購入者
-      </div>
-      <div>
-      （購入者名）
-      </div>
-    </div>
+<h3>注文履歴詳細</h3>
+<div class="row" style="margin-top:30px;">
+  <div class = "col-lg-9">
+    <br><h5>購入者 <%= @order.customer.first_name + @order.customer.last_name %></h5>
+    <br><h5>配送先 〒<%= @order.postal_code %><%= @order.address %></h5>
+    <h5><%= @order.address_name %></h5>
+    <br><h5>支払方法 <%= @order.payment %></h5>
+    <%= form_with(model: @order, url: owners_order_path(@order), method: :patch) do |f| %>
+      <br><%= f.label :sale_status, "注文ステータス" %>
+      <%= f.select :status, [["入金待ち","waiting_payment"], ["入金確認","payment_confirm"],["製作中","making"],["発送準備中","ready_to_ship"],["発送済み","shipped"]], include_blank: "選択して下さい"  %>
+      <%= f.submit'更新',class: "btn btn-primary px-3" %>
+    <% end %>
+    <table class="table table-hover table-bordered table-inverse">
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>数量</th>
+          <th>小計</th>
+          <th>製作ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+          
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            
+          </td>
+          <td>
+            
+          </td>
 
-      <div class="field">
-        <div>
-          配送先
-        </div>
-        <div>
-          （配送先）
-        </div>
-      </div>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-      <div class="field">
-        <div>
-          支払い方法
-        </div>
-        <div>
-         　支払い方法
-        </div>
-      </div>
-
-
-      <div>注文ステータス</div>
-          <div>
-            注文ステータス
-          </div>
-
-        <div>
-        </div>
-
-
-   <table class="table table-hover table-bordered table-inverse">
-          <thead>
-              <tr>
-                <th>商品名</th>
-                <th>単価（税込）</th>
-                <th>数量</th>
-                <th>小計</th>
-                <th>製作ステータス</th>
-
-              </tr>
-          </thead>
-        <tbody>
-
-          <tr>
-                  <td>
-                    商品名
-                  </td>
-                  <td>
-                    単価
-                  </td>
-                  <td>
-                    数量
-                  </td>
-                  <td>
-                    小計
-                  </td>
-                  <td>
-                    ステータス
-                  </td>
-
-              </tr>
-        </tbody>
-      </table>
-
-
+  <div class = "col-lg-3">
       <table class="table table-hover table-bordered table-condensed">
         <tr>
           <th>商品合計</th>
-          <td>a</td>
+   <td>a</td>
         </tr>
         <tr>
           <th>送料</th>
@@ -85,5 +58,5 @@
           <td>a</td>
         </tr>
         </table>
-        <div>
-        </div>
+  </div>
+</div>

@@ -12,21 +12,21 @@
 		  </thead>
 
 		  <tbody>
-		    <% @orders.each do |order| %>
+		    <% @order.each do |order| %>
 		      <tr>
 		        <td>
-		          購入日時
+		          
 		        </td>
 		        <td>
-		          購入者名
+		        	<%= link_to order.customer.first_name + order.customer.last_name, owners_order_path(order) %>
 		        </td>
 		        <td>
-		          個数
+		        	<%= order.billing_amount %>
 		        </td>
-    	        <td>
-    	      	  ステータス
-     	        </td>
-     	      </tr>
+    	      <td>
+    	      	<%= order.status %>	  
+     	      </td>
+     	    </tr>
 		   <% end %>
 		  </tbody>
 		</table>
