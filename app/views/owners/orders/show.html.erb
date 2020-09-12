@@ -1,18 +1,32 @@
-<h3>注文履歴詳細</h3>
+<h3 class="ow_ganre_title">注文履歴詳細</h3>
   <div class="row" style="margin-top:30px;">
     <div class = "col-lg-9">
-      <br><h5>購入者 <%= link_to @order.customer.first_name + @order.customer.last_name,owners_show_owner_costomer_path(@customer) %></h5>
-      <br><h5>配送先 〒<%= @order.postal_code %><%= @order.address %></h5>
-      <h5><%= @order.address_name %></h5>
-      <br>支払方法 
+
+      <br>
+      <th>購入者</th>
+        <td>
+          <%= link_to owners_customers_path(@order.customer_id) do %>
+          <%= @order.customer.last_name %>
+          <%= @order.customer.first_name %>
+          <% end %>
+        </td>
+      <br>
+        <th>配送先</th>
+        <td>〒<%= @order.postal_code %><%= @order.address %></td>
+      <br>
+        <td><%= @order.address_name %></td>
+      <br>
+        <th>支払方法</th>
         <% case @order.payment %>
           <% when "credit_card" %>
             クレジットカード
           <% when "bank_transfer" %>
             銀行振込
         <% end %>
+
       <%= form_with(model: @order, url: owners_order_path(@order), method: :patch,local:true ) do |f| %>
         <br><%= f.label :sale_status, "注文ステータス" %>
+
         <%= f.select :status, [["入金待ち","waiting_payment"], ["入金確認","payment_confirm"],["製作中","making"],["発送準備中","ready_to_ship"],["発送済み","shipped"]], include_blank: "選択して下さい"  %>
         <%= f.submit'更新',class: "btn btn-primary px-3" %>
       <% end %>
