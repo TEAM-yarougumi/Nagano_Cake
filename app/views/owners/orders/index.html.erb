@@ -24,8 +24,20 @@
 		        	<%= order.billing_amount %>
 		        </td>
     	      <td>
-    	      	<%= order.status %>	  
-     	      </td>
+							<% case order.status %>
+								<% when "waiting_payment" %>
+									入金待ち
+								<% when "payment_confirm" %>
+									入金確認
+								<% when "making" %>
+									製作中
+								<% when "ready_to_ship" %>
+									発送準備中
+								<% when "shipped" %>
+									発送済み
+        			<% end %>  
+						 </td>
+				
      	    </tr>
 		   <% end %>
 		  </tbody>
