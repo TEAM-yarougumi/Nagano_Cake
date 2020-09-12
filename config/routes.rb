@@ -38,7 +38,6 @@ Rails.application.routes.draw do
     #orders
     resources :orders, only: [:index, :show, :update]
     patch 'order/:id/update_order' => 'orders#update_order'
-
   end
 
 

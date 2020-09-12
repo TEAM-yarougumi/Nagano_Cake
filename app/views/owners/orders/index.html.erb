@@ -12,22 +12,41 @@
 		  </thead>
 
 		  <tbody>
-		    <% @orders.each do |order| %>
+		    <% @order.each do |order| %>
 		      <tr>
 		        <td>
-		          購入日時
+		          
 		        </td>
 		        <td>
-		          購入者名
+		        	<%= link_to order.customer.first_name + order.customer.last_name, owners_order_path(order) %>
 		        </td>
 		        <td>
-		          個数
+		        	<%= order.billing_amount %>
 		        </td>
+<<<<<<< HEAD
     	        <td>
     	      	  ステータス
      	        </td>
      	      </tr>
      	       <%= link_to "編集する", owners_order_path(order)%>
+=======
+    	      <td>
+							<% case order.status %>
+								<% when "waiting_payment" %>
+									入金待ち
+								<% when "payment_confirm" %>
+									入金確認
+								<% when "making" %>
+									製作中
+								<% when "ready_to_ship" %>
+									発送準備中
+								<% when "shipped" %>
+									発送済み
+        			<% end %>  
+						 </td>
+				
+     	    </tr>
+>>>>>>> 42e6a3846d89fefaa8b6569b6e984e414d101805
 		   <% end %>
 		  </tbody>
 		</table>
