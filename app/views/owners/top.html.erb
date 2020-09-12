@@ -1,6 +1,15 @@
-<div class="container">
-	<div class="col-xs-3">
-	  <h3><strong>管理者画面</strong></h3><br><br>
-	  <h3>本日の注文  <%=link_to (@orders.count), owners_orders_path %>  件</h3>
-	</div>
+<div class="container pb-5">
+ <div class="row">
+  <div class="col-md-3">
+
+    <h3 class="mb-4">管理者画面</h3>
+
+    <div class="ml-3">
+    <h4>本日の注文
+    	<%= link_to owners_orders_path do %>
+    	   <%= @data %>
+    	   <% end %> 件</h4>
+    </div>
+  </div>
+ </div>
 </div>
