@@ -14,7 +14,9 @@
       <header>
         <div class="col-xs-1"></div>
         <div class="col-xs-3">
-          <%= image_tag "logo.png", class: "img-fluid" %>
+          <%= link_to root_path do %>
+            <%= image_tag "logo.png", class: "img-fluid" %>
+          <% end %>
         </div>
 
         <nav class="col-xs-8">
