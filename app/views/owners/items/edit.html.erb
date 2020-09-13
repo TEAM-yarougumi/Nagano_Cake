@@ -7,7 +7,7 @@
           <ul>
             <% @item.errors.full_messages.each do |message| %>
               <li><%= message %></li>
-            <% end %>	
+            <% end %>
           </ul>
 			</div>
 			<% end %>
@@ -16,22 +16,21 @@
         <%= f.attachment_field :image, placeholder: "商品画像" %>
       </div>
       <div class = "col-lg-4">
-        <br><br><%= f.label :name, "商品名" %>
+        <br><br><%= f.label :name, "商品名" ,class: "col-sm-5"%>
         <%= f.text_field :name %>
-        <br><br><%= f.label :content, "商品説明" %>
+        <br><br><%= f.label :content, "商品説明" ,class: "col-sm-5"%>
         <%= f.text_area :content %>
-        <br><br><%= f.label :genre_id, "ジャンル" %>
+        <br><br><%= f.label :genre_id, "ジャンル" ,class: "col-sm-5"%>
         <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "選択して下さい"  %>
-        <br><br><%= f.label :no_tax_price, "税抜き価格" %>
+        <br><br><%= f.label :no_tax_price, "税抜き価格" ,class: "col-sm-5"%>
         <%= f.text_field :no_tax_price %>
-        <br><br><%= f.label :sale_status, "販売ステータス" %>
+        <br><br><%= f.label :sale_status, "販売ステータス" ,class: "col-sm-5"%>
         <%= f.select :sale_status, [["販売中止","unavailable"], ["販売中","available"]], include_blank: "選択して下さい"  %>
-        
-        
+
       </div>
       <div class = "col-lg-3 newaction">
 			<br><%= f.submit'変更を保存',class: "btn btn-primary px-3" %>
-			</div>	
+			</div>
     <% end %>
   </div>
 </div>

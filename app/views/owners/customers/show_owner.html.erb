@@ -59,13 +59,14 @@
   </table>
  </div>
 
-<div class="row ml-5">
-		<div class="col-2 mt-3">
-			<%= link_to "編集する", owners_edit_owner_costomer_path, class:"btn btn-primary btn-sm  mt-20" %>
-		</div>
-		<div class="col mt-3">
-			<%= link_to "注文履歴一覧を見る", owners_top_path(member_id: @customer.id), class:"btn btn-primary btn-sm  mt-20" %>
-		</div>
+  <div class="btn-toolbar">
+  <div class="btn-group">
+	<div class="col-sm-4">
+		<%= link_to "編集する", owners_edit_owner_costomer_path, class:"btn btn-primary btn-sm mt-20" %>	
+	</div>
+	<div class="col-sm-4">
+		<%= link_to "注文履歴一覧を見る", owners_orders_path, class:"btn btn-primary btn-sm mt-20" %>
+	</div>
   </div>
-
+  </div>
 </div>

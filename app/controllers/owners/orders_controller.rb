@@ -7,20 +7,20 @@ class Owners::OrdersController < ApplicationController
 	end
 
 	def show
-		@customer = Customer.find(params[:id])
+		
 		@order = Order.find(params[:id])
 		@sum = 0
 	end
 
 	def update
 		@order = Order.find(params[:id])
-		
+
 		if @order.update(orders_params)
 			flash[:notice] = "更新しました！"
 			if @order.status == "payment_confirm"
 				@order.order_items.each do |order_item|
 					order_item.standby_making!
-				end	
+				end
 		  end
 			redirect_to owners_orders_path
 		end
