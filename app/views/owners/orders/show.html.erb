@@ -58,12 +58,12 @@
             </td>
             <td>
               <%= form_with(model: order_item, url: owners_update_owner_order_path(order_item), method: :patch, local:true)  do |f| %>
-                <%= f.select :item_status, [["着手不可", "not_start"],["制作待ち", "standby_making"],["製作中", "making"],["制作完了", "making_finish"]],include_blank: "選択して下さい" %>
+                <%= f.select :item_status, [["着手不可", "not_start"],["製作待ち", "standby_making"],["製作中", "making"],["製作完了", "making_finish"]],include_blank: "選択して下さい" %>
+                <%= f.hidden_field :order_id, value: @order.id  %>
                 <%= f.submit "更新", class: "btn btn-primary" %>
               <% end %>
-                </td>
-
-            </tr>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>
@@ -74,11 +74,12 @@
         <tr>
           <th>商品合計</th>
           <td>
-               <% @order.order_items.each do |order_item| %>
-                <% sab_total = ((order_item.number * order_item.item.no_tax_price) * 1.1).floor %>
-                <% @sum += sab_total %>
-                <% end %>
-                ¥<%= @sum %></td>
+            <% @order.order_items.each do |order_item| %>
+              <% sub_total = ((order_item.number * order_item.item.no_tax_price)* 1.1).floor %>
+              <% @sum += sub_total %>
+            <% end %>
+            ¥<%= @sum %>
+          </td>
         </tr>
         <tr>
           <th>送料</th>

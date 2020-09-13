@@ -7,39 +7,48 @@ class Owners::OrdersController < ApplicationController
 	end
 
 	def show
-		
 		@order = Order.find(params[:id])
 		@sum = 0
 	end
 
 	def update
 		@order = Order.find(params[:id])
-
-		if @order.update(orders_params)
-			flash[:notice] = "更新しました！"
-			if @order.status == "payment_confirm"
+		@order.update(orders_params)
+			if params[:order][:status] == "payment_confirm"
 				@order.order_items.each do |order_item|
 					order_item.standby_making!
 				end
-		  end
-			redirect_to owners_orders_path
-		end
+				flash[:notice] = "注文の入金が確認できたので、商品の製品ステータスを製作待ちに更新しました！"
+			else
+				flash[:notice] = "注文ステータスを更新しました！"
+			end
+		redirect_to owners_orders_path
 	end
-
+	
 	def update_order
+		@order = Order.find(params[:order_item][:order_id])
 		@order_item = OrderItem.find(params[:id])
-		@order_item.update(order_items_params)
-		if @order_item.save
-			flash[:notice] = "更新しました！"
-			redirect_to owners_orders_path
-		end	
+		@order_items = OrderItem.where(order_id: params[:order_item][:order_id])		
+		@order_item.item_status = params[:order_item][:item_status]
+		@order_item.update(order_item_params)
+		if @order_items.where(item_status: "making").count == 1 && @order_items.where(item_status: "making_finish").count != @order_items.count - 1
+			@order.making!
+			flash[:notice] = "製作ステータスおよび注文ステータスを製作中に更新しました！"
+		end
+		if @order_items.where(item_status: "making_finish").count == @order_items.count
+			@order.ready_to_ship!
+			flash[:notice] = "注文された商品の製作が完了したので、注文ステータスを発送準備中に更新しました！"
+		else
+			flash[:notice] = "商品の製作ステータスを更新しました！"
+		end			
+		redirect_to owners_orders_path
 	end
 
 	private
 	def orders_params
-	    params.require(:order).permit(:customer_id, :postage, :billing_amount, :payment, :address, :postal_code, :status, :address_name )
+		params.require(:order).permit(:customer_id, :postage, :billing_amount, :payment, :address, :postal_code, :status, :address_name)
 	end
-	def order_items_params
-		  params.require(:order_item).permit(:item_status)
+	def order_item_params
+		params.require(:order_item).permit(:item_status)
 	end
 end
