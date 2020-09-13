@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     end
 
     def after_sign_out_path_for(resource)
-      if resource == :admin
+      if resource == :owner
         new_owner_session_path
       else
         root_path
