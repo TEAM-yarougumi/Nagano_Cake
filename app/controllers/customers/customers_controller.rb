@@ -12,7 +12,7 @@ class Customers::CustomersController < ApplicationController
     @customer.unavailable!
     if @customer.status == "unavailable"
       flash[:success] = "退会処理が完了しました。ご利用ありがとうございました。"
-      redirect_to customers_items_path
+      redirect_to root_path
     end
   end
 
@@ -30,13 +30,9 @@ class Customers::CustomersController < ApplicationController
     end
   end
 
-private
+  private
   def customers_params
     params.require(:customer).permit(:email, :last_name, :first_name, :last_furigana, :first_furigana, :postal_code,:address,:telephone_number)
   end
-
-  def set_customer
-    @customer = Customer.find(params[:id] || params[:customer_id])
-  end
-
+  
 end

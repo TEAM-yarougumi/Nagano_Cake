@@ -21,5 +21,7 @@ class Customer < ApplicationRecord
   enum status: { unavailable: 0, available: 1}
   validates :status, inclusion: { in: Customer.statuses.keys }
 
-  
+  def active_for_authentication?
+    super && (self.status == "available")
+  end
 end
