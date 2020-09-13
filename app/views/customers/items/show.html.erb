@@ -12,7 +12,7 @@
 			<div><h2><%= @item.name %></h2></div>
 			<div class="ec_item_show_content"><h4><%= @item.content %></h4></div>
 			<div class="ec_item_show_price_area">
-				<span class="ec_item_show_price">￥ <%= @item.no_tax_price %></span><span> （税込）</span>
+				<span class="ec_item_show_price">￥ <%= (@item.no_tax_price * 1.1).floor %></span><span> （税込）</span>
 			</div>
 			<div>
 				<%= form_with(model: @cart_item, url: customer_cart_items_path(current_customer.id), method: :post, local: true) do |f| %>
