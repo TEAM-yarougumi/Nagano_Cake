@@ -1,4 +1,5 @@
 <h3 class="ow_ganre_title">会員一覧</h3>
+<div class="row" style="margin-top:30px;">
 <table class="table table-bordered">
   <thead>
     <tr class="active">
@@ -19,9 +20,14 @@
         <%= customer.email %>
       </td>
       <td>
-        <%= customer.status %>
+            <%if customer.status == "available"%>
+            <span><%= "有効" %></span>
+            <% else %>
+            <span><%= "退会済" %></span>
+            <% end %>
       </td>
     </tr>
   <% end %>
 </table>
 <%= paginate @customers %>
+</div>
