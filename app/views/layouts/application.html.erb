@@ -14,8 +14,14 @@
       <header>
         <div class="col-xs-1"></div>
         <div class="col-xs-3">
-          <%= link_to root_path do %>
+          <% if owner_signed_in? %>
+            <%= link_to owners_top_path do %>
             <%= image_tag "logo.png", class: "img-fluid" %>
+            <% end %>
+          <% else %>
+            <%= link_to root_path do %>
+              <%= image_tag "logo.png", class: "img-fluid" %>
+            <% end %>
           <% end %>
         </div>
 
