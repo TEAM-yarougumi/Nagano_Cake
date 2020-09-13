@@ -31,13 +31,16 @@ class Owners::OrdersController < ApplicationController
 		@order_items = OrderItem.where(order_id: params[:order_item][:order_id])
 		if @order_item.update(order_items_params)
 			flash[:notice] = "更新しました！"
-			if @order_item.item_status == "making"
-				@order.making!
-			end
+
+			 @order_items.each do |order_item|
+				case order_item.item_status
+					when "making_finish"
+						@order.ready_to_ship!
+					when "making"
+						@order.making!
+				end
+			 end
 			binding.pry
-			if @order_items.item_status  == "making_finish"
-				@order.ready_to_ship!
-			end
 			redirect_to owners_orders_path
 		end	
 	end
