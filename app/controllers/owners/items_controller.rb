@@ -4,15 +4,17 @@ class Owners::ItemsController < ApplicationController
 def new
   @item = Item.new
   @genres = Genre.where(status: true)
+
 end
 
 def create
   @item = Item.new(items_params)
   if @item.save
     flash[:notice] = "商品登録完了しました！"
-    redirect_to owners_items_index_owner_path 
-  else 
-    render  'new'
+    redirect_to owners_path(@item)
+  else
+    @genres = Genre.where(status: true)
+    render :new
   end
 end
 

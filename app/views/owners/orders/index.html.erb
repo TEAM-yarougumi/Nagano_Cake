@@ -3,7 +3,7 @@
 	<div class="col-xs-10 ">
 		<table class="table table-hover table-bordered table-condensed">
 		  <thead>
-		    <tr>
+		    <tr class="active">
 		      <th>購入日時</th>
 	      	  <th>購入者</th>
 		      <th>注文個数</th>
@@ -12,21 +12,36 @@
 		  </thead>
 
 		  <tbody>
-		    <% @orders.each do |order| %>
+		    <% @order.each do |order| %>
 		      <tr>
 		        <td>
-		          購入日時
+		         <%= order.created_at. strftime('%Y/%m/%d/%R:%S') %>
 		        </td>
 		        <td>
-		          購入者名
+		        	<%= link_to order.customer.last_name + order.customer.first_name, owners_order_path(order) %>
 		        </td>
 		        <td>
-		          個数
+		        	<% sum = 0 %>
+					<% order.order_items.each do |order_item| %>
+					<% sum = sum + order_item.number%>
+					<% end %>
+					<%= sum %>
 		        </td>
-    	        <td>
-    	      	  ステータス
-     	        </td>
-     	      </tr>
+    	      <td>
+							<% case order.status %>
+								<% when "waiting_payment" %>
+									入金待ち
+								<% when "payment_confirm" %>
+									入金確認
+								<% when "making" %>
+									製作中
+								<% when "ready_to_ship" %>
+									発送準備中
+								<% when "shipped" %>
+									発送済み
+        			<% end %>
+						 </td>
+     	    </tr>
 		   <% end %>
 		  </tbody>
 		</table>
