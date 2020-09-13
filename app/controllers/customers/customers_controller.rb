@@ -12,7 +12,7 @@ class Customers::CustomersController < ApplicationController
     @customer.unavailable!
     if @customer.status == "unavailable"
       flash[:success] = "退会処理が完了しました。ご利用ありがとうございました。"
-      redirect_to customers_items_path
+      redirect_to root_path
     end
   end
 
