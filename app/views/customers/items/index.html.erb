@@ -25,13 +25,13 @@
           <h2><%= @title %>一覧</h2>
         </div>
         <div class="item_title_count">
-          <p>(全<%= @items.count %>件)</p>
+          <p>(全<%= @items_count %>件)</p>
         </div>
       </div>
-      <div class="row item_list">
+      <div class="row">
         <% @items.each do |item| %>
           <%= link_to customers_item_path(item.id) do %>
-            <div class="item_list col-xs-3">
+            <div class="col-xs-3">
               <div class="item_image">
                 <%= attachment_image_tag(item, :image, size: "200x180", fallback: "no_image.jpg") %>
               </div>
@@ -44,9 +44,15 @@
             </div>
           <% end %>
         <% end %>
-        <%= paginate @items %>
+      </div>
+      <div class="paginate">
+        <% if defined?(@genre).blank? %>
+          <%= paginate @items %>
+        <% else %>
+          <%= paginate @items %>
+          <%= hidden_field_tag :genre_nav, @genre.id %>
+        <% end %>
       </div>
     </div>
   </div>
-
 </div>
