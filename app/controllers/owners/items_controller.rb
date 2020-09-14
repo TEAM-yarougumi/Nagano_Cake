@@ -14,7 +14,7 @@ def create
     redirect_to owners_path(@item)
   else
     @genres = Genre.where(status: true)
-    render :new
+    render 'new'
   end
 end
 

@@ -1,60 +1,63 @@
-<div class="row">
-	<div>
-		<p>注文情報入力</p>
-	</div>
-	<div>
-		<%= form_with(url: confirm_path(current_customer.id), method: :post, local: true) do |f| %>
-			<p>支払方法</p>
-			<div class="field form-group">
-				<%= f.radio_button :payment, :credit_card, checked: true %>
-				<%= f.label :payment, "クレジットカード", {value: :credit_card} %>
-			</div>
-			<div class="field form-group">
-				<%= f.radio_button :payment, :bank_transfer %>
-				<%= f.label :payment, "銀行振込", {value: :bank_transfer} %>
-			</div>
+<div class="row ec_order_new_body">
+	<div class="col-xs-3"></div>
+	<div class="col-xs-9">
+		<div>
+			<h3 class="ec_order_new_title">　注文情報入力　</h3>
+		</div>
+		<div>
+			<%= form_with(url: confirm_path(current_customer.id), method: :post, local: true) do |f| %>
+				<h4 class="ec_order_new_form_title">支払方法</h4>
+				<div class="field form-group">
+					<%= f.radio_button :payment, :credit_card, checked: true %>
+					<%= f.label :payment, "クレジットカード", {value: :credit_card} %>
+				</div>
+				<div class="field form-group">
+					<%= f.radio_button :payment, :bank_transfer %>
+					<%= f.label :payment, "銀行振込", {value: :bank_transfer} %>
+				</div>
 
-			<p>お届け先</p>
-			<!-- 自身の住所 -->
-			<div class="field form-group">
-				<%= f.radio_button :choice_shipping_address, :my_address, checked: true %>
-				<%= f.label :choice_shipping_address, "ご自身の住所", {value: :my_address} %>
-			</div>
-			<div>
-				<%= current_customer.postal_code %>　<%= current_customer.address %><br>
-				<%= current_customer.last_name %><%= current_customer.first_name %>
-			</div>
-			
-			<!-- 登録済住所 -->
-			<div class="field form-group">
-				<%= f.radio_button :choice_shipping_address, :registered_address %>
-				<%= f.label :choice_shipping_address, "登録済住所から選択", {value: :registered_address} %>
-			</div>
-			<div class="field form-group">
-				<%= f.collection_select(:choice_pulldown, @shipping_addresses, :id, :registered_shipping_address) %>
-			</div>
+				<h4 class="ec_order_new_form_title">お届け先</h4>
+				<!-- 自身の住所 -->
+				<div class="ec_order_new_form">
+					<%= f.radio_button :choice_shipping_address, :my_address, checked: true %>
+					<%= f.label :choice_shipping_address, "ご自身の住所", {value: :my_address} %>
+				</div>
+				<div class="ec_order_new_form_body">
+					<%= current_customer.postal_code %>　<%= current_customer.address %><br>
+					<%= current_customer.last_name %><%= current_customer.first_name %>
+				</div>
+				
+				<!-- 登録済住所 -->
+				<div class="field form-group ec_order_new_form">
+					<%= f.radio_button :choice_shipping_address, :registered_address %>
+					<%= f.label :choice_shipping_address, "登録済住所から選択", {value: :registered_address} %>
+				</div>
+				<div class="field form-group ec_order_new_form ec_order_new_form_body">
+					<%= f.collection_select(:choice_pulldown, @shipping_addresses, :id, :registered_shipping_address) %>
+				</div>
 
-			<!-- 新しい住所 -->
-			<div class="field form-group">
-				<%= f.radio_button :choice_shipping_address, :new_address %>
-				<%= f.label :choice_shipping_address, "新しいお届け先", {value: :new_address} %>
-			</div>
-			<div class="field form-group">
-				<%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
-				<%= f.text_field :postal_code %>
-			</div>
-			<div class="field form-group">
-				<%= f.label :address, "住所" %>
-				<%= f.text_field :address %>
-			</div>
-			<div class="field form-group">
-				<%= f.label :address_name, "宛名" %>
-				<%= f.text_field :address_name %>
-			</div>
-			
+				<!-- 新しい住所 -->
+				<div class="field form-group ec_order_new_form">
+					<%= f.radio_button :choice_shipping_address, :new_address %>
+					<%= f.label :choice_shipping_address, "新しいお届け先", {value: :new_address} %>
+				</div>
+				<div class="field form-group ec_order_new_form ec_order_new_form_body">
+					<%= f.label :postal_code, "郵便番号（ハイフンなし）　" %>
+					<%= f.text_field :postal_code %>
+				</div>
+				<div class="field form-group ec_order_new_form ec_order_new_form_body">
+					<%= f.label :address, "住所　　　　　　　　　　　" %>
+					<%= f.text_field :address, :size => "50" %>
+				</div>
+				<div class="field form-group ec_order_new_form ec_order_new_form_body">
+					<%= f.label :address_name, "宛名　　　　　　　　　　　" %>
+					<%= f.text_field :address_name %>
+				</div>
+				
 
-			<%= f.submit "　確認画面へ進む　", class: "btn btn-primary" %>
+				<%= f.submit "　確認画面へ進む　", class: "btn btn-primary ec_order_new_form_button" %>
 
-		<% end %>
+			<% end %>
+		</div>
 	</div>
 </div>
