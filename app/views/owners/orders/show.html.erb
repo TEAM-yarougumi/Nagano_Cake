@@ -1,13 +1,13 @@
 <h3 class="ow_ganre_title">注文履歴詳細</h3>
   <div class="row" style="margin-top:30px;">
     <div class = "col-lg-9">
-
       <br>
+      <!-- 購入者情報 -->
       <th>購入者</th>
         <td>
           <%= link_to owners_show_owner_costomer_path(@order.customer_id) do %>
-          <%= @order.customer.last_name %>
-          <%= @order.customer.first_name %>
+            <%= @order.customer.last_name %>
+            <%= @order.customer.first_name %>
           <% end %>
         </td>
       <br>
@@ -24,22 +24,22 @@
             銀行振込
         <% end %>
 
+      <!-- 注文商品一覧 -->
       <%= form_with(model: @order, url: owners_order_path(@order), method: :patch,local:true ) do |f| %>
         <br><%= f.label :sale_status, "注文ステータス" %>
-
         <%= f.select :status, [["入金待ち","waiting_payment"], ["入金確認","payment_confirm"],["製作中","making"],["発送準備中","ready_to_ship"],["発送済み","shipped"]], include_blank: "選択して下さい"  %>
         <%= f.submit'更新',class: "btn btn-primary px-3" %>
       <% end %>
-    <table class="table table-hover table-bordered table-inverse">
-      <thead>
-        <tr>
-          <th>商品名</th>
-          <th>単価(税込)</th>
-          <th>数量</th>
-          <th>小計</th>
-          <th>製作ステータス</th>
-        </tr>
-      </thead>
+      <table class="table table-hover table-bordered table-inverse">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+          </tr>
+        </thead>
       <tbody>
 
         <% @order.order_items.each do |order_item| %>
@@ -69,6 +69,7 @@
     </table>
   </div>
 
+  <!-- 注文金額一覧 -->
   <div class = "col-lg-3">
       <table class="table table-hover table-bordered table-condensed">
         <tr>

@@ -1,4 +1,5 @@
 <h3 class="ow_ganre_title">注文履歴一覧</h3>
+<!-- 注文履歴一覧テーブル -->
 <div class="row" style="margin-top:30px;">
 	<div class="col-xs-10 ">
 		<table class="table table-hover table-bordered table-condensed">
@@ -15,7 +16,7 @@
 		    <% @order.each do |order| %>
 		      <tr>
 		        <td>
-		         <%= link_to order.created_at. strftime('%Y/%m/%d/%R:%S') , owners_order_path(order) %>
+		        	<%= link_to order.created_at. strftime('%Y/%m/%d/%R:%S') , owners_order_path(order) %>
 		        </td>
 		        <td>
 		        	<%= order.customer.last_name + order.customer.first_name %>
@@ -27,23 +28,23 @@
 					<% end %>
 					<%= sum %>
 		        </td>
-    	      <td>
-							<% case order.status %>
-								<% when "waiting_payment" %>
-									入金待ち
-								<% when "payment_confirm" %>
-									入金確認
-								<% when "making" %>
-									製作中
-								<% when "ready_to_ship" %>
-									発送準備中
-								<% when "shipped" %>
-									発送済み
+    	    	<td>
+					<% case order.status %>
+						<% when "waiting_payment" %>
+							入金待ち
+						<% when "payment_confirm" %>
+							入金確認
+						<% when "making" %>
+							製作中
+						<% when "ready_to_ship" %>
+							発送準備中
+						<% when "shipped" %>
+							発送済み
         			<% end %>
-						 </td>
-     	    </tr>
-		   <% end %>
+				</td>
+     	       </tr>
+		   	<% end %>
 		  </tbody>
 		</table>
 	</div>
-	</div>
+</div>
