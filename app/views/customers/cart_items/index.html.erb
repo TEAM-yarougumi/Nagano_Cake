@@ -1,9 +1,12 @@
+<!-- カートを空にするボタン -->
 <% if current_customer.cart_items.blank? %>
   <p>カートは空です</p>
 <% else %>
   <div class="cart_all_destory_btn">
     <%= link_to  "カートを空にする", customer_cart_items_path, method: :delete, data: { confirm: 'カートの中身をすべて削除します。問題なければ、OKをクリックしてください。' } %>
   </div>
+
+<!-- ショッピングカート -->
   <div class="cart_title">
     <h2>ショッピングカート</h2>
   </div>
@@ -30,7 +33,7 @@
             <%= form_with(model: cart_item, url: customer_cart_item_path(current_customer.id, cart_item.id), method: :patch, remote: :false) do |f| %>
               <%= f.number_field :number, size: "20x20" %>
               <%= f.submit "変更" %>
-            <% end %> 
+            <% end %>
           </td>
           <td>
             <%= (( item.no_tax_price * 1.1 ).floor * cart_item.number).to_s(:delimited, delimiter: ',') %>
