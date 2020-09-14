@@ -1,13 +1,9 @@
 class OwnersController < ApplicationController
- 
 
- 	def top
-		@orders = Order.all
-		if @orders.where([:created_at].to_s.match(/#{Date.today.to_s}.+/)).present?
-			@data = @orders.where([:created_at].to_s.match(/#{Date.today.to_s}.+/)).count
-		else
-			@data = "注文なし！"
+	def top
+		if Order.where(created_at: Time.zone.now.all_day).present?
+			@data = Order.where(created_at: Time.zone.now.all_day).count
 		end
- 	end
+	end
 
 end

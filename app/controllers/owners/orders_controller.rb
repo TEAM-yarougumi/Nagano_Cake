@@ -2,8 +2,17 @@ class Owners::OrdersController < ApplicationController
   before_action :authenticate_owner!
 
 	def index
-		@order = Order.all
-		@orders = Order.all.page(params[:page]).per(10)
+		case params[:order_index_source]
+			when "from_header"
+				@orders = Order.all.page(params[:page]).per(10)
+				@order_index_source = params[:order_index_source]
+			when "from_top"
+				@orders = Order.where(created_at: Time.zone.now.all_day).page(params[:page]).per(10)
+				@order_index_source = params[:order_index_source]
+			when "from_show_owner"
+				@orders = Order.where(customer_id: params[:customer_source]).all.page(params[:page]).per(10)
+				@order_index_source = params[:order_index_source]
+		end
 	end
 
 	def show

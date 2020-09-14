@@ -3,48 +3,52 @@
 <div class="row" style="margin-top:30px;">
 	<div class="col-xs-10 ">
 		<table class="table table-hover table-bordered table-condensed">
-		  <thead>
-		    <tr class="active">
-		      <th>購入日時</th>
-	      	  <th>購入者</th>
-		      <th>注文個数</th>
-		      <th>注文ステータス</th>
-		    </tr>
-		  </thead>
+			<thead>
+				<tr class="active">
+					<th>購入日時</th>
+						<th>購入者</th>
+					<th>注文個数</th>
+					<th>注文ステータス</th>
+				</tr>
+			</thead>
 
-		  <tbody>
-		    <% @order.each do |order| %>
-		      <tr>
-		        <td>
-		        	<%= link_to order.created_at. strftime('%Y/%m/%d/%R:%S') , owners_order_path(order) %>
-		        </td>
-		        <td>
-		        	<%= order.customer.last_name + order.customer.first_name %>
-		        </td>
-		        <td>
-		        	<% sum = 0 %>
-					<% order.order_items.each do |order_item| %>
-					<% sum = sum + order_item.number%>
-					<% end %>
-					<%= sum %>
-		        </td>
-    	    	<td>
-					<% case order.status %>
-						<% when "waiting_payment" %>
-							入金待ち
-						<% when "payment_confirm" %>
-							入金確認
-						<% when "making" %>
-							製作中
-						<% when "ready_to_ship" %>
-							発送準備中
-						<% when "shipped" %>
-							発送済み
-        			<% end %>
-				</td>
-     	       </tr>
-		   	<% end %>
-		  </tbody>
+			<tbody>
+				<% @orders.each do |order| %>
+					<tr>
+						<td>
+							<%= link_to order.created_at. strftime('%Y/%m/%d/%R:%S') , owners_order_path(order) %>
+						</td>
+						<td>
+							<%= order.customer.last_name + order.customer.first_name %>
+						</td>
+						<td>
+							<% sum = 0 %>
+							<% order.order_items.each do |order_item| %>
+								<% sum = sum + order_item.number%>
+							<% end %>
+							<%= sum %>
+						</td>
+						<td>
+							<% case order.status %>
+								<% when "waiting_payment" %>
+									入金待ち
+								<% when "payment_confirm" %>
+									入金確認
+								<% when "making" %>
+									製作中
+								<% when "ready_to_ship" %>
+									発送準備中
+								<% when "shipped" %>
+									発送済み
+							<% end %>
+							</td>
+					</tr>
+				<% end %>
+			</tbody>
 		</table>
+		<div class="paginate">
+			<%= paginate @orders %>
+			<%= hidden_field_tag :order_index_source => @order_index_source %>
+		</div>
 	</div>
 </div>
