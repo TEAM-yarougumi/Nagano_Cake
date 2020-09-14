@@ -5,7 +5,7 @@
       <br>
       <th>購入者</th>
         <td>
-          <%= link_to owners_customers_path(@order.customer_id) do %>
+          <%= link_to owners_show_owner_costomer_path(@order.customer_id) do %>
           <%= @order.customer.last_name %>
           <%= @order.customer.first_name %>
           <% end %>
