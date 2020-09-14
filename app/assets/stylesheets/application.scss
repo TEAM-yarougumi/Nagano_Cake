@@ -215,6 +215,10 @@ nav {
 	text-align: center;
 }
 
+.ec_top_item_index {
+	float: right;
+}
+
 /*EC_login_body部分*/
 
 .ec_login_body {
@@ -271,6 +275,7 @@ nav {
 .registration_edit_btn {
 	margin-bottom: 100px;
 }
+
 
 /*EC_mypage*/
 
@@ -348,6 +353,12 @@ nav {
 .ec_shipping_address_create_button{
 	margin-left: 215px;
 }
+
+/* ec_shipping_address_edit */
+.ec_shipping_address_edit_btn {
+	margin-left: 450px;
+}
+
 
 /* ec_about */
 .ec_about_title {
@@ -572,6 +583,12 @@ nav {
 .ec_order_confirm_button {
 	margin-top: 40px;
 	margin-left: 220px;
+}
+
+/* EC注文完了 */
+.ec_order_complete_text {
+	margin-top: 175px;
+	text-align: center;
 }
 
 
