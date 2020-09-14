@@ -1,4 +1,5 @@
 <h3 class="ow_ganre_title">注文履歴一覧</h3>
+<!-- 注文履歴一覧テーブル -->
 <div class="row" style="margin-top:30px;">
 	<div class="col-xs-10 ">
 		<table class="table table-hover table-bordered table-condensed">
@@ -22,10 +23,10 @@
 						</td>
 						<td>
 							<% sum = 0 %>
-					<% order.order_items.each do |order_item| %>
-					<% sum = sum + order_item.number%>
-					<% end %>
-					<%= sum %>
+							<% order.order_items.each do |order_item| %>
+								<% sum = sum + order_item.number%>
+							<% end %>
+							<%= sum %>
 						</td>
 						<td>
 							<% case order.status %>
@@ -50,4 +51,4 @@
 			<%= hidden_field_tag :order_index_source => @order_index_source %>
 		</div>
 	</div>
-	</div>
+</div>
