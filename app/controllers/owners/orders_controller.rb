@@ -31,7 +31,7 @@ class Owners::OrdersController < ApplicationController
 			else
 				flash[:notice] = "注文ステータスを更新しました！"
 			end
-		redirect_to owners_orders_path
+		redirect_to owners_order_path(@order.id)
 	end
 	
 	def update_order
@@ -50,7 +50,7 @@ class Owners::OrdersController < ApplicationController
 		else
 			flash[:notice] = "商品の製作ステータスを更新しました！"
 		end			
-		redirect_to owners_orders_path
+		redirect_to owners_order_path(@order.id)
 	end
 
 	private
