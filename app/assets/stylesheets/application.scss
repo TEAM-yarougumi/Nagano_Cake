@@ -551,6 +551,29 @@ nav {
 	margin-left: 255px;
 }
 
+/* EC注文情報確認 */
+.ec_order_confirm_title {
+	background-color: #eeeeee;
+	display: inline;
+}
+
+.ec_order_confirm_body {
+	margin-top: 50px;
+}
+
+.ec_order_confirm_table {
+	margin-top: 30px;
+}
+
+.ec_order_confirm_payment, .ec_order_confirm_shipping_address {
+	font-size: 16px;
+}
+
+.ec_order_confirm_button {
+	margin-top: 40px;
+	margin-left: 220px;
+}
+
 
 
 // ow側 items/new
