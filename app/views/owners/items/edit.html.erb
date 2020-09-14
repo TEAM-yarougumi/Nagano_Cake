@@ -1,5 +1,6 @@
 <h3 class="ow_ganre_title">商品編集</h3>
   <div class="row" style="margin-top:50px;">
+    <!-- エラーメッセージ -->
     <%= form_with(model:@item, url:	owners_item_path, method: :patch , local: true ) do |f| %>
       <% if @item.errors.any? %>
         <div class="error_explanation">
@@ -11,10 +12,14 @@
           </ul>
 			</div>
 			<% end %>
+
+    <!-- 商品イメージ写真編集 -->
       <div class = "col-lg-4">
         <%= attachment_image_tag @item, :image,format: 'jpeg', size: "300x300", fallback: "no_image.jpg"%>
         <%= f.attachment_field :image, placeholder: "商品画像" %>
       </div>
+
+    <!-- 商品詳細編集フォーム -->
       <div class = "col-lg-4">
         <br><br><%= f.label :name, "商品名" ,class: "col-sm-5"%>
         <%= f.text_field :name %>
@@ -26,10 +31,9 @@
         <%= f.text_field :no_tax_price %>
         <br><br><%= f.label :sale_status, "販売ステータス" ,class: "col-sm-5"%>
         <%= f.select :sale_status, [["販売中止","unavailable"], ["販売中","available"]], include_blank: "選択して下さい"  %>
-
       </div>
       <div class = "col-lg-3 newaction">
-			<br><%= f.submit'変更を保存',class: "btn btn-primary px-3" %>
+			  <br><%= f.submit'変更を保存',class: "btn btn-primary px-3" %>
 			</div>
     <% end %>
   </div>

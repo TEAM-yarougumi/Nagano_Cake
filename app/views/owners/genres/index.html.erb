@@ -1,4 +1,6 @@
 <h3 class="ow_ganre_title" >ジャンル一覧・追加</h3>
+
+<!-- ジャンル追加フォーム -->
 <div class="row" style="margin-top:20px;">
    <%= form_with(model:@genre, url: owners_genres_path, local: true) do |f| %>
       <%= f.label :name, "ジャンル名" %>
@@ -10,6 +12,8 @@
       <%= f.label :status, "無効", {value: :false, style: "display: inline-block;"} %>
       <%= f.submit'追加',class: "btn btn-primary px-3"  %>
    <% end %>
+
+<!-- ジャンル一覧テーブル -->
    <table class="table table-hover table-inverse" style="margin-top:20px;">
       <thead>
          <th>ジャンル</th>
@@ -29,7 +33,7 @@
                <% end %>
             </td>
             <td>
-            <%= link_to "編集する", edit_owners_genre_path(genre), class: "btn-sm btn-primary",style:"border-radius: 0.3em" %>
+               <%= link_to "編集する", edit_owners_genre_path(genre), class: "btn-sm btn-primary",style:"border-radius: 0.3em" %>
             </td>
          </tr>
       <% end %>
