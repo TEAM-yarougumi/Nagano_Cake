@@ -1,10 +1,9 @@
 class Owners::ItemsController < ApplicationController
- before_action :authenticate_owner! 一時的に無効化
+  before_action :authenticate_owner! 一時的に無効化
 
 def new
   @item = Item.new
   @genres = Genre.where(status: true)
-
 end
 
 def create
