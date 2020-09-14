@@ -15,10 +15,10 @@
 		    <% @order.each do |order| %>
 		      <tr>
 		        <td>
-		         <%= order.created_at. strftime('%Y/%m/%d/%R:%S') %>
+		         <%= link_to order.created_at. strftime('%Y/%m/%d/%R:%S') , owners_order_path(order) %>
 		        </td>
 		        <td>
-		        	<%= link_to order.customer.last_name + order.customer.first_name, owners_order_path(order) %>
+		        	<%= order.customer.last_name + order.customer.first_name %>
 		        </td>
 		        <td>
 		        	<% sum = 0 %>

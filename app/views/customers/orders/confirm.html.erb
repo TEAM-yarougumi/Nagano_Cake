@@ -1,84 +1,102 @@
-<!-- 画面表示部分 -->
-<div>
-	<p>注文情報確認</p>
+<div class="row ec_order_confirm_body">
+	<div class="col-xs-3"></div>
+	<div class="col-xs-9">
+		<!-- 画面表示部分 -->
+		<div>
+			<h3 class="ec_order_confirm_title">　注文情報確認　</h3>
+		</div>
+	</div>
 </div>
 
-<div>
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>商品名</th>
-				<th>単価（税込）</th>
-				<th>数量</th>
-				<th>小計</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @cart_items_total_price = 0  %>
-			<% @cart_items.each do |cart_item| %>
-			<tr>
-				<td><%= attachment_image_tag(cart_item.item, :image, :fill, 400, 300) %>　<%= cart_item.item.name %></td>
-				<td><%= (cart_item.item.no_tax_price * 1.1).floor %></td>
-				<td><%= cart_item.number %></td>
-				<td><%= (cart_item.item.no_tax_price * 1.1).floor * (cart_item.number) %></td>
-			</tr>
-				<% @cart_items_total_price += (cart_item.item.no_tax_price * 1.1).floor * (cart_item.number) %>
+<div class="row ec_order_confirm_table">
+	<div class="col-xs-2"></div>
+	<div class="col-xs-6">
+		<div>
+			<table class="table table-bordered">
+				<thead>
+					<tr class="active">
+						<th>商品名</th>
+						<th>単価（税込）</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @cart_items_total_price = 0  %>
+					<% @cart_items.each do |cart_item| %>
+					<tr>
+						<td><%= attachment_image_tag(cart_item.item, :image, :fill, 80, 60) %>　<%= cart_item.item.name %></td>
+						<td><%= (cart_item.item.no_tax_price * 1.1).floor.to_s(:delimited, delimiter: ',') %></td>
+						<td><%= cart_item.number %></td>
+						<td><%= ((cart_item.item.no_tax_price * 1.1).floor * (cart_item.number)).to_s(:delimited, delimiter: ',') %></td>
+					</tr>
+						<% @cart_items_total_price += (cart_item.item.no_tax_price * 1.1).floor * (cart_item.number) %>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="col-xs-3">
+		<div>
+			<table class="table table-bordered">
+				<tbody>
+					<tr>
+						<td class="active">送料</td>
+						<td><%= @order.postage.to_s(:delimited, delimiter: ',') %></td>
+					</tr>
+					<tr>
+						<td class="active">商品合計</td>
+						<td><%= @cart_items_total_price.to_s(:delimited, delimiter: ',') %></td>
+					</tr>
+					<tr>
+						<td class="active">請求金額</td>
+						<td><%= ((@cart_items_total_price) + (@order.postage)).to_s(:delimited, delimiter: ',')  %></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="col-xs-1"></div>
+</div>
+
+<div class="row">
+	<div class="col-xs-3"></div>
+	<div class="col-xs-9">
+		<div>
+			<h4><b>支払方法</b></h4>
+			<% if params[:payment] == "credit_card" %>
+				<p class="ec_order_confirm_payment">クレジットカード</p>
+			<% else %>
+				<p class="ec_order_confirm_payment">銀行振込</p>
 			<% end %>
-		</tbody>
-	</table>
+		</div>
+
+		<div>
+			<h4><b>お届け先</b></h4>
+			<% if params[:choice_shipping_address] == "my_address" %>
+				<p class="ec_order_confirm_shipping_address"><%= current_customer.postal_code %>　<%= current_customer.address %>　<%= current_customer.last_name %><%= current_customer.first_name %></p>
+			<% else %>
+				<p class="ec_order_confirm_shipping_address"><%= @order.postal_code %>　<%= @order.address %>　<%= @order.address_name %></p>
+			<% end %>
+		</div>
+	
+		<!-- 注文情報送信部分 -->
+		<%= form_with(model: @order, url: customer_orders_path(current_customer.id), method: :post, local: true) do |f| %>
+			<%= f.hidden_field :payment, value: params[:payment] %>
+			<%= f.hidden_field :billing_amount, value: (@cart_items_total_price) + (@order.postage) %>
+			<!-- お届け先によってパラメータを場合分け -->
+			<% if params[:choice_shipping_address] == "my_address" %>
+				<%= f.hidden_field :postal_code, value: current_customer.postal_code %>
+				<%= f.hidden_field :address, value: current_customer.address %>
+				<%= f.hidden_field :address_name, value: (current_customer.last_name) + (current_customer.first_name) %>
+			<% else %>
+				<%= f.hidden_field :postal_code, value: @order.postal_code %>
+				<%= f.hidden_field :address, value: @order.address %>
+				<%= f.hidden_field :address_name, value: @order.address_name %>
+			<% end %>
+
+			<%= f.submit "　購入を確定する　", class: "btn btn-success ec_order_confirm_button" %>
+		<% end %>
+	</div>
 </div>
-
-<div>
-	<table class="table table-bordered">
-		<tbody>
-			<tr>
-				<td>送料</td>
-				<td><%= @order.postage %></td>
-			</tr>
-			<tr>
-				<td>商品合計</td>
-				<td><%= @cart_items_total_price %></td>
-			</tr>
-			<tr>
-				<td>請求金額</td>
-				<td><%= (@cart_items_total_price) + (@order.postage)  %></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-
-<div>
-	<p>支払方法</p>
-	<% if params[:payment] == "credit_card" %>
-		<p>クレジットカード</p>
-	<% else %>
-		<p>銀行振込</p>
-	<% end %>
-</div>
-
-<div>
-	<p>お届け先</p>
-	<% if params[:choice_shipping_address] == "my_address" %>
-		<p><%= current_customer.postal_code %>　<%= current_customer.address %>　<%= current_customer.last_name %><%= current_customer.first_name %></p>
-	<% else %>
-		<p><%= @order.postal_code %>　<%= @order.address %>　<%= @order.address_name %></p>
-	<% end %>
-</div>
-
-<!-- 注文情報送信部分 -->
-<%= form_with(model: @order, url: customer_orders_path(current_customer.id), method: :post, local: true) do |f| %>
-	<%= f.hidden_field :payment, value: params[:payment] %>
-	<%= f.hidden_field :billing_amount, value: (@cart_items_total_price) + (@order.postage) %>
-	<!-- お届け先によってパラメータを場合分け -->
-	<% if params[:choice_shipping_address] == "my_address" %>
-		<%= f.hidden_field :postal_code, value: current_customer.postal_code %>
-		<%= f.hidden_field :address, value: current_customer.address %>
-		<%= f.hidden_field :address_name, value: (current_customer.last_name) + (current_customer.first_name) %>
-	<% else %>
-		<%= f.hidden_field :postal_code, value: @order.postal_code %>
-		<%= f.hidden_field :address, value: @order.address %>
-		<%= f.hidden_field :address_name, value: @order.address_name %>
-	<% end %>
-
-	<%= f.submit "　購入を確定する　", class: "btn btn-success" %>
-<% end %>
