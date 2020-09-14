@@ -1,8 +1,9 @@
 <div class="row">
 <h3 class="ow_ganre_title"><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h3>
 
+<!-- 会員情報編集フォーム -->
 <%= form_with(model: @customer, url:  owners_update_owner_costomer_path(@customer), method: :patch, local: true ) do |f| %>
- 
+
  <div class="col-xs-10">
   <div class="form-group col-xs-9" style="margin-top:20px;">
     <%= f.label :last_name, "会員ID", class: "col-sm-4 control-label" %>

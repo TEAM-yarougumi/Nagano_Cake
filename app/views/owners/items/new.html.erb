@@ -1,5 +1,6 @@
 <h3 class="ow_ganre_title">商品新規登録</h3>
 	<div class="row">
+		<!-- エラ〜メッセージ -->
 		<%= form_with(model:@item, url:	owners_items_path, method: :post , local: true ) do |f| %>
 			<% if @item.errors.any? %>
 				<div class="error_explanation">
@@ -7,14 +8,18 @@
 					<ul>
 						<% @item.errors.full_messages.each do |message| %>
 							<li><%= message %></li>
-						<% end %>	
+						<% end %>
 					</ul>
 				</div>
 			<% end %>
+
+		<!-- 画像登録フォーム -->
 			<div class = "col-lg-5">
 				<%= attachment_image_tag @item, :image, :fill, 60, 60 %>
 				<%= f.attachment_field :image, placeholder: "商品画像" %>
 			</div>
+
+		<!-- 商品情報登録フォーム -->
 			<div class = "col-lg-4">
 				<br><br><%= f.label :name, "商品名" %>
 					<%= f.text_field :name %>
@@ -29,6 +34,6 @@
 			</div>
 			<div class = "col-lg-3 newaction">
 			<br><br><%= f.submit'新規登録',class: "btn btn-primary px-3" %>
-			</div>	
+			</div>
 		<% end %>
 	</div>

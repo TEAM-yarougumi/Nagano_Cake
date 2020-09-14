@@ -1,13 +1,17 @@
-
 <h4 class="ow_ganre_title">商品詳細</h4>
   <div class="row" style="margin-top:50px;">
     <div class = "col-lg-1">
     </div>
+
+    <!-- 商品イメージ写真 -->
     <div class = "col-lg-3">
       <%= attachment_image_tag @item, :image, format: 'jpeg', size: "300x300", fallback: "no_image.jpg"%>
     </div>
+
     <div class = "col-lg-2">
     </div>
+
+    <!-- 商品ステータス一覧 -->
     <div class = "col-lg-2">
       <br><h5>商品名</h5>
       <br><h5>商品説明</h5>
@@ -15,6 +19,8 @@
       <br><h5>税込価格(税抜価格)</h5>
       <br><h5>販売ステータス</h5>
     </div>
+
+    <!-- 商品情報一覧 -->
     <div class = "col-lg-4">
       <br><h5><%= @item.name %></h5>
       <br><h5><%= @item.content %></h5>
@@ -29,4 +35,3 @@
       <br><h5><%= link_to "編集する",edit_owners_item_path(@item) %></h5>
     </div>
   </div>
-  
