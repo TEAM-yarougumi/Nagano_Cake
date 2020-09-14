@@ -11,16 +11,10 @@ def create
   @item = Item.new(items_params)
   if @item.save
     flash[:notice] = "商品登録完了しました！"
-<<<<<<< HEAD
     redirect_to owners_path(@item)
   else
     @genres = Genre.where(status: true)
-    render :new
-=======
-    redirect_to owners_path(@item) 
-  else 
-    render  'new'
->>>>>>> ea70ccfe9b3571cd2b268200ee299bab73352f09
+    render 'new'
   end
 end
 

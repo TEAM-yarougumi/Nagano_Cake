@@ -65,7 +65,16 @@ nav {
 }
 
 .header_list_item {
-	margin-right: 30px;
+	margin-right: 15px;
+}
+
+.img-fluid {
+	margin-left: 60px;
+}
+
+.header_customer_name {
+	margin-top: 50px;
+	text-align: center;
 }
 
 /* EC_registration_new */
@@ -193,7 +202,12 @@ nav {
 
 /* EC_トップページ */
 .welcome_message {
-	padding: 50px 0;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	padding: 100px 0;
+	background-image: url("ec_top_page.jpg");
+	background-size: 100% 100%;
+	background-position: center;
 }
 
 .welcome_message p {
@@ -511,9 +525,31 @@ nav {
 	font-size: 30px;
 }
 
+/* EC注文情報入力 */
+.ec_order_new_title {
+	background-color: #eeeeee;
+	display: inline;
+}
 
+.ec_order_new_body {
+	margin-top: 50px;
+}
 
+.ec_order_new_form {
+	font-size: 16px;
+}
 
+.ec_order_new_form_title {
+	margin-left: -45px;
+}
+
+.ec_order_new_form_body {
+	margin-left: 30px;
+}
+
+.ec_order_new_form_button {
+	margin-left: 255px;
+}
 
 
 
@@ -527,3 +563,4 @@ padding-top: 130px;
 .fa-plus-circle{
 	padding-left: 970px;
 }
+

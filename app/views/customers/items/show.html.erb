@@ -1,7 +1,22 @@
 <div class="row">
 	<div class="col-xs-3">
-		<div>ジャンル検索</div>
-	</div>
+    <nav class="genre_nav navbar navbar-dark bg-dark">
+      <div class="genre_nav_title">
+        <h3>ジャンル検索</h3>
+      </div>
+      <div class="genre_nav_list">
+        <ul>
+          <% @genres.each do |genre| %>
+            <%= link_to customers_items_path(:genre_nav => genre.id) do %>
+              <li>
+                <%= genre.name %>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
 	<div class="col-xs-9 ec_item_show_body">
 		<div class="col-xs-6">
@@ -18,7 +33,7 @@
 				<%= form_with(model: @cart_item, url: customer_cart_items_path(current_customer.id), method: :post, local: true) do |f| %>
 					<div class="field form-group">
 						<%= f.select :number, ([["1", "1"],["2", "2"],["3", "3"],["4", "4"],["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"],["18", "18"],["19", "19"],["20", "20"],["21", "21"],["22", "22"],["23", "23"],["24", "24"],["25", "25"],["26", "26"],["27", "27"],["28", "28"],["29", "29"],["30", "30"]]), { include_blank: "個数選択"}, class: "form-control" %>
-						<%= f.hidden_field :item_id, value: @item.id %>	
+						<%= f.hidden_field :item_id, value: @item.id %>　　
 						<%= f.submit "カートに入れる", class: "btn btn-primary" %>
 					</div>
 				<% end %>
