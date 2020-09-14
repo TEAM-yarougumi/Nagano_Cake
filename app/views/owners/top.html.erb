@@ -6,11 +6,15 @@
 
       <div class="ml-3">
       <h4>本日の注文
-        <%= link_to owners_orders_path do %>
-          <%= @data %>
-          <% end %> 件</h4>
+        <% if defined?@data %>
+          <%= link_to owners_orders_path(:order_index_source => "from_top") do %>
+            <%= @data %>
+          <% end %> 件
+        <% else %>
+          注文なし！
+        <% end %>
+      </h4>
       </div>
-      <%= hidden_field_tag :order_index_source, "from_top" %>
     </div>
   </div>
 </div>
