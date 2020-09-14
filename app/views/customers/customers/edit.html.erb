@@ -71,8 +71,9 @@
       <dt class="registration_form_title">
         <%= f.label :address, "住所" %>
       </dt>
+
       <dd class="registration_address">
-        <%= f.text_field :address, autofocus: true, autocomplete: "address"%>
+        <%= f.text_field :address, autofocus: true, autocomplete: "address", :size => "52" %>
       </dd>
     </dl>
 
