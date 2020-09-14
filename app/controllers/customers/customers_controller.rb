@@ -1,12 +1,10 @@
 class Customers::CustomersController < ApplicationController
+	before_action :authenticate_customer!
 
   def show
     @customer = Customer.find(params[:id])
   end
   
-  def leave
-  end
-
   def out
     @customer = Customer.find(params[:customer_out_id])
     @customer.unavailable!
