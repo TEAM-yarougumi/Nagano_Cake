@@ -1,7 +1,9 @@
 <div class="cart_title">
   <h2>注文履歴詳細</h2>
 </div>
+
 <div class="ec_order_flex">
+  <!-- 注文情報欄 -->
   <div class="ec_order_information">
     <h2>注文情報</h2>
     <dl>
@@ -20,7 +22,7 @@
       </dd>
       <dt>ステータス</dt>
       <dd>
-        <% case @order.status %> 
+        <% case @order.status %>
           <% when "waiting_payment" %>
             入金待ち
           <% when "payment_confirm" %>
@@ -35,6 +37,8 @@
       </dd>
     </dl>
   </div>
+
+  <!-- 請求情報欄 -->
   <div class="ec_order_information">
     <h2>請求情報</h2>
     <dl>
@@ -53,7 +57,9 @@
     </dl>
   </div>
 </div>
+
 <div class="ec_order_information">
+  <!-- 注文内容欄 -->
   <table class="cart_table">
     <caption>注文内容</caption>
     <tr>

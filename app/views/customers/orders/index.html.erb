@@ -1,9 +1,12 @@
+<!-- 注文がなかった場合 -->
 <% if @orders.blank? %>
-  <p>履歴はありません</p> 
+  <p>履歴はありません</p>
 <% else %>
   <div class="cart_title">
     <h2>注文履歴一覧</h2>
   </div>
+
+<!-- 注文履歴一覧 -->
   <div class="shopping_cart">
     <table class="cart_table">
       <tr>
@@ -27,13 +30,13 @@
           <td>
             <% order.items.each do |item| %>
               <%= item.name %><br>
-            <% end %> 
+            <% end %>
           </td>
           <td>
             <%= order.billing_amount.to_s(:delimited, delimiter: ',') %> 円
           </td>
           <td>
-            <% case order.status %> 
+            <% case order.status %>
               <% when "waiting_payment" %>
                 入金待ち
               <% when "payment_confirm" %>
