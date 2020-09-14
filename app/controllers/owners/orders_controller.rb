@@ -7,7 +7,6 @@ class Owners::OrdersController < ApplicationController
 	end
 
 	def show
-		
 		@order = Order.find(params[:id])
 		@sum = 0
 	end
